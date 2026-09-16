@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsha Dairy | Pure Milk, Pure Trust</title>
+    <style>
+        /* Website Colors & Fonts based on Logo */
+        :root {
+            --dark-green: #0a5c27; /* Logo ka green color */
+            --light-green: #e8f5e9;
+            --water-blue: #008cd4; /* Logo ke pani/doodh ka splash color */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc;
+            color: #333;
+        }
+        /* Header & Logo Section */
+        header {
+            background-color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .brand-container img {
+            width: 80px; 
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--dark-green);
+        }
+        .brand-text h1 {
+            color: var(--dark-green);
+            margin: 0;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        .brand-text p {
+            color: var(--water-blue);
+            margin: 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 600;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--water-blue); }
+        
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, var(--light-green), #ffffff);
+            border-bottom: 5px solid var(--water-blue);
+        }
+        .hero h2 {
+            color: var(--dark-green);
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+            color: #444;
+        }
+        .highlight { color: var(--water-blue); font-weight: bold; }
+
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            color: var(--dark-green);
+            font-size: 32px;
+            margin: 50px 0 20px 0;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px 5% 50px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            width: 240px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--dark-green);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-top: 4px solid var(--water-blue); }
+        .card h3 { color: var(--dark-green); font-size: 22px; margin-bottom: 10px;}
+        .card p { font-size: 15px; color: #555; line-height: 1.5; }
+
+        /* Footer / Contact */
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 40px 5% 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .footer-box {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .footer-box h3 {
+            border-bottom: 2px solid var(--water-blue);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .footer-box p { font-size: 15px; margin: 8px 0; line-height: 1.5; }
+        .footer-bottom {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="brand-container">
+            <!-- Yahan aapke logo ki file ka naam diya gaya hai -->
+            <img src="96835.png" alt="Harsha Dairy Logo">
+            <div class="brand-text">
+                <h1>HARSHA DAIRY</h1>
+                <p>Pure Milk, Pure Trust</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Our Products</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Banner Section -->
+    <div id="home" class="hero">
+        <h2>Bidhuna Ka Apna Smart Dairy Vikalp!</h2>
+        <p>Bazaar ke packet wale milawati doodh ko kahen alvida. Harsha Dairy aapke baccho ke acche swasthya ke liye laaya hai <span class="highlight">Milk ATM machine</span> dwara aapke ghar tak subah-shaam bilkul taaza aur shuddh doodh.</p>
+    </div>
+
+    <!-- Products Section -->
+    <h2 id="products" class="section-title">Hamare Shuddh Utpad</h2>
+    <div class="products">
+        <div class="card">
+            <h3>Farm Fresh Doodh</h3>
+            <p>100% shuddh aur bina kisi milawat ka taaza doodh, seedhe farm se aapke ghar tak. Baccho ki sehat ke liye sabse behtar.</p>
+        </div>
+        <div class="card">
+            <h3>Desi Ghee</h3>
+            <p>Paramparik tarike se tayaar kiya gaya daanedar ghee. Bazaar ke chemical wale ghee se bachein aur shuddhata chunein.</p>
+        </div>
+        <div class="card">
+            <h3>Taaza Paneer</h3>
+            <p>Bilkul naram aur swadisht paneer, jo milawati aur synthetic paneer ka ek perfect aur healthy alternative hai.</p>
+        </div>
+        <div class="card">
+            <h3>Swadisht Mattha</h3>
+            <p>Garmiyo mein pet ko thandak dene wala aur pachan tantra ko majboot karne wala taaza aur shuddh mattha.</p>
+        </div>
+    </div>
+
+    <!-- Footer & Contact Section -->
+    <footer id="contact">
+        <div class="footer-box">
+            <h3>Sampark Karein (Contact Us)</h3>
+            <p><strong>Mobile:</strong> +91 6396803045</p>
+            <p><strong>Email:</strong> Harshrajawat518@gmail.com</p>
+        </div>
+        <div class="footer-box">
+            <h3>Hamara Pata (Address)</h3>
+            <p>Lajjanagar, Airwa Katra<br>Bidhuna, District - Auraiya<br>Uttar Pradesh</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Harsha Dairy. All Rights Reserved. Pure Milk, Pure Trust.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
