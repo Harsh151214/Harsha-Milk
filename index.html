@@ -10,75 +10,106 @@
             --light-green: #e8f5e9;
             --water-blue: #008cd4;
         }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; }
-        
-        /* Header & Teen Line Menu (Hamburger) */
-        header { background-color: white; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .brand-container { display: flex; align-items: center; gap: 10px; }
-        .brand-container img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--dark-green); }
-        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 22px; font-weight: 900; }
-        .brand-text p { color: var(--water-blue); margin: 0; font-size: 13px; font-weight: bold; }
-        
-        .menu-icon { font-size: 30px; cursor: pointer; color: var(--dark-green); display: none; }
-        nav { display: flex; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark-green); font-weight: 600; margin-left: 20px; font-size: 16px; transition: color 0.3s; }
-        
-        /* Mobile Menu Design */
-        @media (max-width: 768px) {
-            .menu-icon { display: block; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; box-shadow: 0 5px 10px rgba(0,0,0,0.1); padding-bottom: 15px; }
-            nav.active { display: flex; }
-            nav a { margin: 15px 0 0 0; text-align: center; font-size: 18px; width: 100%; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
+
+        /* Header Design */
+        header { background-color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+
+        /* Logo Section */
+        .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none;}
+        .brand-container img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--dark-green); }
+        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 20px; font-weight: 900; }
+        .brand-text p { color: var(--water-blue); margin: 0; font-size: 12px; font-weight: bold; }
+
+        /* Right Section: Search + Menu Icon */
+        .right-section { display: flex; align-items: center; gap: 15px; }
+
+        /* Search Bar */
+        .search-container { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; overflow: hidden; background: #f9f9f9; }
+        .search-container input { border: none; padding: 6px 10px; outline: none; font-size: 14px; width: 120px; background: transparent;}
+        .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 12px; cursor: pointer; font-size: 14px; }
+
+        /* Hamburger Menu Icon */
+        .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
+
+        /* Side Menu (Teen line dabane par khulne wala) */
+        .side-menu {
+            position: fixed; top: 0; right: -300px; width: 250px; height: 100vh;
+            background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s; z-index: 200; display: flex; flex-direction: column;
+            padding-top: 60px;
         }
+        .side-menu.active { right: 0; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
+        .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
+        .side-menu a:hover { background-color: var(--light-green); }
 
         /* Banner & Content */
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 5px solid var(--water-blue); }
-        .hero h2 { color: var(--dark-green); font-size: 32px; margin-bottom: 15px; }
-        .hero p { font-size: 18px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
-        .highlight { color: var(--water-blue); font-weight: bold; }
-        
-        .section-title { text-align: center; color: var(--dark-green); font-size: 28px; margin: 40px 0 20px 0; }
-        .products { display: flex; justify-content: center; gap: 20px; padding: 10px 5% 40px; flex-wrap: wrap; }
-        .card { background: white; border-radius: 12px; padding: 20px; text-align: center; width: 260px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--dark-green); }
-        .card h3 { color: var(--dark-green); font-size: 20px; margin-bottom: 10px;}
+        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
+        .hero h2 { color: var(--dark-green); font-size: 26px; margin-bottom: 10px; }
+        .hero p { font-size: 16px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
+
+        .section-title { text-align: center; color: var(--dark-green); font-size: 24px; margin: 30px 0 15px 0; }
+        .products { display: flex; justify-content: center; gap: 15px; padding: 10px 5% 40px; flex-wrap: wrap; }
+        .card { background: white; border-radius: 10px; padding: 20px; text-align: center; width: 100%; max-width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid var(--dark-green); }
+        .card h3 { color: var(--dark-green); font-size: 18px; margin-bottom: 8px;}
         .card p { font-size: 14px; color: #555; line-height: 1.5; }
 
-        footer { background-color: var(--dark-green); color: white; padding: 20px; text-align: center; font-size: 14px;}
+        footer { background-color: var(--dark-green); color: white; padding: 15px; text-align: center; font-size: 13px;}
+
+        /* Mobile Screen adjustments */
+        @media (max-width: 450px) {
+            .brand-text p { display: none; }
+            .search-container input { width: 70px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-container">
+        <!-- Logo (Left Side) -->
+        <a href="index.html" class="brand-container">
             <img src="96835.png" alt="Harsha Dairy Logo">
             <div class="brand-text">
                 <h1>HARSHA DAIRY</h1>
                 <p>Pure Milk, Pure Trust</p>
             </div>
+        </a>
+
+        <!-- Search Bar aur Teen Line (Right Side) -->
+        <div class="right-section">
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+            <div class="menu-icon" onclick="openMenu()">☰</div>
         </div>
-        
-        <!-- Teen Line (Hamburger) Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        
-        <!-- Navigation Menu -->
-        <nav id="navMenu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="#" style="color: var(--water-blue);">🔔 New Updates</a>
-        </nav>
     </header>
 
+    <!-- Slide hone wala Menu -->
+    <div id="sideMenu" class="side-menu">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">ℹ️ About Us</a>
+        <a href="contact.html">📞 Contact Us</a>
+        <a href="#">🔔 Latest Update</a>
+        <a href="#">🏧 ATM Update</a>
+        <a href="#">💰 Price Update</a>
+        <a href="#">⏱️ Timing Update</a>
+        <a href="#">🎥 Video</a>
+    </div>
+
+    <!-- Main Content -->
     <div class="hero">
         <h2>Bidhuna Ka Apna Smart Dairy Vikalp!</h2>
-        <p>Bazaar ke packet wale milawati doodh ko kahen alvida. Harsha Dairy aapke baccho ke acche swasthya ke liye laaya hai <span class="highlight">Milk ATM machine</span> dwara aapke ghar tak subah-shaam bilkul taaza aur shuddh doodh.</p>
+        <p>Bazaar ke packet wale milawati doodh ko kahen alvida. Harsha Dairy aapke baccho ke acche swasthya ke liye laaya hai <span style="color:var(--water-blue); font-weight:bold;">Milk ATM machine</span> dwara aapke ghar tak subah-shaam bilkul taaza aur shuddh doodh.</p>
     </div>
 
     <h2 class="section-title">Hamare Shuddh Utpad</h2>
     <div class="products">
         <div class="card"><h3>Farm Fresh Doodh</h3><p>100% shuddh aur bina kisi milawat ka taaza doodh, seedhe farm se aapke ghar tak.</p></div>
         <div class="card"><h3>Desi Ghee</h3><p>Paramparik tarike se tayaar kiya gaya daanedar ghee. Shuddhata chunein.</p></div>
-        <div class="card"><h3>Taaza Paneer</h3><p>Bilkul naram aur swadisht paneer, perfect aur healthy alternative.</p></div>
+        <div class="card"><h3>Taaza Paneer</h3><p>Bilkul naram aur swadisht paneer, perfect alternative.</p></div>
         <div class="card"><h3>Swadisht Mattha</h3><p>Pet ko thandak dene wala aur pachan tantra ko majboot karne wala taaza mattha.</p></div>
     </div>
 
@@ -86,11 +117,13 @@
         <p>&copy; 2026 Harsha Dairy. All Rights Reserved.</p>
     </footer>
 
-    <!-- JS for Mobile Menu Toggle -->
+    <!-- Script for Opening/Closing Side Menu -->
     <script>
-        function toggleMenu() {
-            var menu = document.getElementById("navMenu");
-            menu.classList.toggle("active");
+        function openMenu() {
+            document.getElementById("sideMenu").classList.add("active");
+        }
+        function closeMenu() {
+            document.getElementById("sideMenu").classList.remove("active");
         }
     </script>
 
