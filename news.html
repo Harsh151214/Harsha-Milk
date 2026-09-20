@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates | Harsha Dairy</title>
+    <style>
+        :root {
+            --dark-green: #0a5c27;
+            --light-green: #e8f5e9;
+            --water-blue: #008cd4;
+            --alert-red: #d9534f;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
+
+        /* Header Design */
+        header { background-color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none;}
+        .brand-container img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--dark-green); }
+        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 20px; font-weight: 900; }
+        .brand-text p { color: var(--water-blue); margin: 0; font-size: 12px; font-weight: bold; }
+
+        .right-section { display: flex; align-items: center; gap: 15px; }
+        .search-container { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; overflow: hidden; background: #f9f9f9; }
+        .search-container input { border: none; padding: 6px 10px; outline: none; font-size: 14px; width: 120px; background: transparent;}
+        .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 12px; cursor: pointer; font-size: 14px; }
+        .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
+
+        /* Side Menu */
+        .side-menu { position: fixed; top: 0; right: -300px; width: 250px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
+        .side-menu.active { right: 0; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
+        .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
+        .side-menu a:hover { background-color: var(--light-green); }
+
+        /* Page Banner */
+        .page-banner { text-align: center; padding: 30px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
+        .page-banner h2 { color: var(--dark-green); font-size: 24px; margin-bottom: 5px; }
+        .page-banner p { font-size: 14px; color: #555; }
+
+        /* News Container */
+        .news-container { max-width: 800px; margin: 30px auto; padding: 0 15px; }
+        .news-card { background: white; border-top: 4px solid var(--alert-red); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 25px; margin-bottom: 30px; }
+        .news-card h3 { color: var(--alert-red); font-size: 20px; margin-top: 0; margin-bottom: 15px; }
+        .news-img { width: 100%; max-width: 100%; border-radius: 6px; border: 2px solid #ddd; margin: 15px 0; }
+        .news-text-box { background: #fafafa; padding: 15px; border-radius: 6px; margin-top: 15px; }
+        .news-text-box ul { padding-left: 20px; margin: 0; }
+        .news-text-box li { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 8px; }
+
+        footer { background-color: var(--dark-green); color: white; padding: 15px; text-align: center; font-size: 13px; margin-top: 50px;}
+
+        @media (max-width: 450px) {
+            .brand-text p { display: none; }
+            .search-container input { width: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="96835.png" alt="Harsha Dairy Logo">
+            <div class="brand-text">
+                <h1>HARSHA DAIRY</h1>
+                <p>Pure Milk, Pure Trust</p>
+            </div>
+        </a>
+
+        <div class="right-section">
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+            <div class="menu-icon" onclick="openMenu()">☰</div>
+        </div>
+    </header>
+
+    <div id="sideMenu" class="side-menu">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <a href="index.html">🏠 होम (Home)</a>
+        <a href="about.html">ℹ️ हमारे बारे में (About)</a>
+        <a href="contact.html">📞 संपर्क करें (Contact)</a>
+        <a href="news.html" style="background-color: var(--light-green);">📰 न्यूज़ अपडेट (News Update)</a>
+        <a href="#">🏧 मिल्क एटीएम अपडेट</a>
+        <a href="#">💰 मूल्य सूची (Price)</a>
+        <a href="#">⏱️ समय सारणी (Timing)</a>
+        <a href="#">🎥 वीडियो</a>
+    </div>
+
+    <div class="page-banner">
+        <h2>ताज़ा खबरें एवं जागरूकता</h2>
+        <p>स्वास्थ्य, शुद्धता और दूध में मिलावट से जुड़ी महत्वपूर्ण रिपोर्ट्स</p>
+    </div>
+
+    <div class="news-container">
+        <!-- News Card 1 -->
+        <div class="news-card">
+            <h3>⚠️ दूध और खाद्य पदार्थों में मिलावट एक गंभीर खतरा!</h3>
+            <p style="color: #555; line-height: 1.6;">अखबार की रिपोर्ट्स के मुताबिक खाद्य पदार्थों में मिलावट से हमारे स्वास्थ्य पर बहुत बुरा असर पड़ रहा है। हर्षा डेयरी का मुख्य उद्देश्य इसी जहरीली मिलावट को जड़ से समाप्त करना है।</p>
+            
+            <img src="milawat-news.jpg" alt="मिलावट रिपोर्ट समाचार" class="news-img">
+
+            <div class="news-text-box">
+                <h4 style="color: var(--dark-green); margin-top:0;">रिपोर्ट की मुख्य बातें:</h4>
+                <ul>
+                    <li><strong>लाखों में नमूने, हजारों में फेल:</strong> FSSAI की जांच में देश भर में हजारों नमूने फेल पाए गए, जिसमें उत्तर प्रदेश मिलावट के मामले में सबसे आगे रहा है।</li>
+                    <li><strong>गंभीर बीमारियां:</strong> दूषित भोजन और मिलावटी दूध से 200 से अधिक प्रकार की गंभीर बीमारियां होने का खतरा रहता है।</li>
+                    <li><strong>बच्चों पर जोखिम:</strong> 5 साल से कम उम्र के बच्चों पर दूषित भोजन का सबसे ज्यादा दुष्प्रभाव पड़ता है।</li>
+                    <li><strong>हर्षा डेयरी का संकल्प:</strong> इस मिलावट से बचाने के लिए ही हम <strong>मिल्क एटीएम</strong> लेकर आए हैं।</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Harsha Dairy. All Rights Reserved. Pure Milk, Pure Trust.</p>
+    </footer>
+
+    <script>
+        function openMenu() { document.getElementById("sideMenu").classList.add("active"); }
+        function closeMenu() { document.getElementById("sideMenu").classList.remove("active"); }
+    </script>
+
+</body>
+</html>
+
