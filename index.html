@@ -9,46 +9,43 @@
             --dark-green: #0a5c27;
             --light-green: #e8f5e9;
             --water-blue: #008cd4;
+            --alert-red: #d9534f;
         }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
 
         /* Header Design */
         header { background-color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-
-        /* Logo Section */
         .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none;}
         .brand-container img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--dark-green); }
         .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 20px; font-weight: 900; }
         .brand-text p { color: var(--water-blue); margin: 0; font-size: 12px; font-weight: bold; }
 
-        /* Right Section: Search + Menu Icon */
         .right-section { display: flex; align-items: center; gap: 15px; }
-
-        /* Search Bar */
         .search-container { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; overflow: hidden; background: #f9f9f9; }
         .search-container input { border: none; padding: 6px 10px; outline: none; font-size: 14px; width: 120px; background: transparent;}
         .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 12px; cursor: pointer; font-size: 14px; }
-
-        /* Hamburger Menu Icon */
         .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
 
-        /* Side Menu (Teen line dabane par khulne wala) */
-        .side-menu {
-            position: fixed; top: 0; right: -300px; width: 250px; height: 100vh;
-            background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-            transition: 0.3s; z-index: 200; display: flex; flex-direction: column;
-            padding-top: 60px;
-        }
+        /* Side Menu */
+        .side-menu { position: fixed; top: 0; right: -300px; width: 250px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
         .side-menu.active { right: 0; }
         .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
         .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
         .side-menu a:hover { background-color: var(--light-green); }
 
-        /* Banner & Content */
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
-        .hero h2 { color: var(--dark-green); font-size: 26px; margin-bottom: 10px; }
-        .hero p { font-size: 16px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
+        /* Hero Banner */
+        .hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
+        .hero h2 { color: var(--dark-green); font-size: 24px; margin-bottom: 10px; }
+        .hero p { font-size: 15px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
 
+        /* Awareness Section (Milavat ke khilaf jagrukta) */
+        .awareness-section { background-color: #fff3f3; border-top: 4px solid var(--alert-red); border-bottom: 4px solid var(--alert-red); padding: 30px 5%; margin: 30px 0; }
+        .awareness-container { max-width: 800px; margin: auto; text-align: center; }
+        .awareness-container h2 { color: var(--alert-red); font-size: 24px; margin-bottom: 15px; }
+        .awareness-container p { font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 20px; text-align: justify; }
+        .awareness-img { width: 100%; max-width: 600px; border-radius: 8px; border: 3px solid #ccc; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 15px; }
+
+        /* Products Section */
         .section-title { text-align: center; color: var(--dark-green); font-size: 24px; margin: 30px 0 15px 0; }
         .products { display: flex; justify-content: center; gap: 15px; padding: 10px 5% 40px; flex-wrap: wrap; }
         .card { background: white; border-radius: 10px; padding: 20px; text-align: center; width: 100%; max-width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid var(--dark-green); }
@@ -57,7 +54,6 @@
 
         footer { background-color: var(--dark-green); color: white; padding: 15px; text-align: center; font-size: 13px;}
 
-        /* Mobile Screen adjustments */
         @media (max-width: 450px) {
             .brand-text p { display: none; }
             .search-container input { width: 70px; }
@@ -67,7 +63,6 @@
 <body>
 
     <header>
-        <!-- Logo (Left Side) -->
         <a href="index.html" class="brand-container">
             <img src="96835.png" alt="Harsha Dairy Logo">
             <div class="brand-text">
@@ -76,7 +71,6 @@
             </div>
         </a>
 
-        <!-- Search Bar aur Teen Line (Right Side) -->
         <div class="right-section">
             <div class="search-container">
                 <input type="text" placeholder="Search...">
@@ -86,7 +80,6 @@
         </div>
     </header>
 
-    <!-- Slide hone wala Menu -->
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
         <a href="index.html">🏠 Home</a>
@@ -99,10 +92,22 @@
         <a href="#">🎥 Video</a>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main Hero Banner -->
     <div class="hero">
         <h2>Bidhuna Ka Apna Smart Dairy Vikalp!</h2>
         <p>Bazaar ke packet wale milawati doodh ko kahen alvida. Harsha Dairy aapke baccho ke acche swasthya ke liye laaya hai <span style="color:var(--water-blue); font-weight:bold;">Milk ATM machine</span> dwara aapke ghar tak subah-shaam bilkul taaza aur shuddh doodh.</p>
+    </div>
+
+    <!-- Jagrukta & Milawat Virodhi Section -->
+    <div class="awareness-section">
+        <div class="awareness-container">
+            <h2>⚠️ Doodh aur Khadya Padarthon mein Milawat Ek Gambhir Khatra!</h2>
+            <p>Aapne akhbar mein padha hi hoga ki kaise desh bhar mein khadya namoone fail ho rahe hain aur Uttar Pradesh milawat ke mamle mein sabse aage hai. Doodh, paneer aur khane ki anya cheezon mein milavat se hamare parivar aur chote bacchon ki sehat par bahut bura asar pad raha hai.</p>
+            <p><strong>Harsha Dairy ka Mukhya Uddesya:</strong> Humne Bidhuna mein ishi zehreeli milawat ko jad se samapt karne aur har ghar tak 100% shuddh, taaza aur poshak tatvon se bharpoor doodh pahunchane ke sankalp ke sath <strong>Milk ATM</strong> ki shuruaat ki hai. Aapki sehat hi hamari sabse badi taakat hai!</p>
+            
+            <!-- Akhbar ki photo yahan dikhegi -->
+            <img src="milawat-news.jpg" alt="Milawat ke khilaf jagrukta report" class="awareness-img">
+        </div>
     </div>
 
     <h2 class="section-title">Hamare Shuddh Utpad</h2>
@@ -114,17 +119,12 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Harsha Dairy. All Rights Reserved.</p>
+        <p>&copy; 2026 Harsha Dairy. All Rights Reserved. Pure Milk, Pure Trust.</p>
     </footer>
 
-    <!-- Script for Opening/Closing Side Menu -->
     <script>
-        function openMenu() {
-            document.getElementById("sideMenu").classList.add("active");
-        }
-        function closeMenu() {
-            document.getElementById("sideMenu").classList.remove("active");
-        }
+        function openMenu() { document.getElementById("sideMenu").classList.add("active"); }
+        function closeMenu() { document.getElementById("sideMenu").classList.remove("active"); }
     </script>
 
 </body>
