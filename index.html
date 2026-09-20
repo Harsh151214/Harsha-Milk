@@ -13,7 +13,6 @@
         }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
 
-        /* Header Design */
         header { background-color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none;}
         .brand-container img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--dark-green); }
@@ -26,25 +25,21 @@
         .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 12px; cursor: pointer; font-size: 14px; }
         .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
 
-        /* Side Menu */
         .side-menu { position: fixed; top: 0; right: -300px; width: 250px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
         .side-menu.active { right: 0; }
         .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
         .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
         .side-menu a:hover { background-color: var(--light-green); }
 
-        /* Hero Banner */
         .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
         .hero h2 { color: var(--dark-green); font-size: 26px; margin-bottom: 10px; }
         .hero p { font-size: 16px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
 
-        /* News Alert Banner on Home */
         .home-news-alert { background-color: #fff3f3; border: 2px dashed var(--alert-red); border-radius: 10px; max-width: 750px; margin: 30px auto; padding: 20px; text-align: center; }
         .home-news-alert h3 { color: var(--alert-red); margin-top: 0; font-size: 20px; }
         .home-news-alert p { font-size: 14px; color: #555; line-height: 1.5; }
         .news-btn { display: inline-block; background-color: var(--alert-red); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
 
-        /* Products Section */
         .section-title { text-align: center; color: var(--dark-green); font-size: 24px; margin: 40px 0 15px 0; }
         .products { display: flex; justify-content: center; gap: 15px; padding: 10px 5% 40px; flex-wrap: wrap; }
         .card { background: white; border-radius: 10px; padding: 20px; text-align: center; width: 100%; max-width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid var(--dark-green); }
@@ -81,27 +76,25 @@
 
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
-        <a href="index.html">🏠 होम (Home)</a>
+        <a href="index.html" style="background-color: var(--light-green);">🏠 होम (Home)</a>
         <a href="about.html">ℹ️ हमारे बारे में (About)</a>
         <a href="contact.html">📞 संपर्क करें (Contact)</a>
-        <a href="news.html" style="background-color: var(--light-green);">📰 न्यूज़ अपडेट (News Update)</a>
-        <a href="#">🏧 मिल्क एटीएम अपडेट</a>
-        <a href="#">💰 मूल्य सूची (Price)</a>
-        <a href="#">⏱️ समय सारणी (Timing)</a>
-        <a href="#">🎥 वीडियो</a>
+        <a href="news.html">📰 न्यूज़ अपडेट (News Update)</a>
+        <a href="atm.html">🏧 मिल्क एटीएम अपडेट</a>
+        <a href="price.html">💰 मूल्य सूची (Price)</a>
+        <a href="timing.html">⏱️ समय सारणी (Timing)</a>
+        <a href="video.html">🎥 वीडियो</a>
     </div>
 
-    <!-- Hero Banner -->
     <div class="hero">
         <h2>बिधूना का अपना स्मार्ट डेयरी विकल्प!</h2>
         <p>बाजार के पैकेट वाले मिलावटी दूध को कहें अलविदा। हर्षा डेयरी आपके बच्चों के अच्छे स्वास्थ्य के लिए लाया है <span style="color:var(--water-blue); font-weight:bold;">मिल्क एटीएम मशीन</span> द्वारा आपके घर तक सुबह-शाम बिल्कुल ताज़ा और शुद्ध दूध।</p>
     </div>
 
-    <!-- Quick News Banner on Home -->
     <div class="home-news-alert">
         <h3>⚠️ विशेष चेतावनी: दूध में मिलावट</h3>
         <p>अखबार की रिपोर्ट के अनुसार मिलावटी दूध और खाद्य पदार्थों से स्वास्थ्य पर गंभीर असर पड़ रहा है। पूरी रिपोर्ट पढ़ें।</p>
-        <a href="news.html" class="news-btn">📰 पूरी न्यूज़ यहाँ पढ़ें</a>
+        <a href="news.html" class="news-btn">📰 न्यूज़ यहाँ पढ़ें</a>
     </div>
 
     <h2 class="section-title">हमारे शुद्ध उत्पाद</h2>
