@@ -31,7 +31,12 @@
         .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
         .side-menu a:hover { background-color: var(--light-green); }
 
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
+        /* नई सूचना / स्क्रॉलिंग अपडेट बार के लिए डिज़ाइन */
+        .notification-bar { background-color: var(--dark-green); color: white; padding: 10px 0; display: flex; align-items: center; overflow: hidden; font-size: 14px; }
+        .notification-tag { background-color: var(--alert-red); color: white; padding: 5px 12px; font-weight: bold; z-index: 2; white-space: nowrap; margin-left: 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .notification-bar marquee { font-weight: 500; letter-spacing: 0.5px; }
+
+        .hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
         .hero h2 { color: var(--dark-green); font-size: 26px; margin-bottom: 10px; }
         .hero p { font-size: 16px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
 
@@ -73,6 +78,14 @@
             <div class="menu-icon" onclick="openMenu()">☰</div>
         </div>
     </header>
+
+    <!-- यहाँ नई सूचना (News Update) बाईं ओर मूव करने के लिए जोड़ी गई है -->
+    <div class="notification-bar">
+        <div class="notification-tag">📢 सूचना / न्यू अपडेट:</div>
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            बिधूना में हर्षा डेयरी का मिल्क एटीएम शुरू! पाइए 100% शुद्ध और ताज़ा दूध सीधे फार्म से • विशेष चेतावनी: पैकेटबंद मिलावटी दूध से बचें, स्वास्थ्य का रखें ध्यान • ताज़ा पनीर और शुद्ध देसी घी उपलब्ध है!
+        </marquee>
+    </div>
 
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
