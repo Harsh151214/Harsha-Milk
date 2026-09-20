@@ -38,12 +38,17 @@
         .hero h2 { color: var(--dark-green); font-size: 24px; margin-bottom: 10px; }
         .hero p { font-size: 15px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
 
-        /* Awareness Section (Milavat ke khilaf jagrukta) */
+        /* Awareness Section */
         .awareness-section { background-color: #fff3f3; border-top: 4px solid var(--alert-red); border-bottom: 4px solid var(--alert-red); padding: 30px 5%; margin: 30px 0; }
         .awareness-container { max-width: 800px; margin: auto; text-align: center; }
-        .awareness-container h2 { color: var(--alert-red); font-size: 24px; margin-bottom: 15px; }
-        .awareness-container p { font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 20px; text-align: justify; }
-        .awareness-img { width: 100%; max-width: 600px; border-radius: 8px; border: 3px solid #ccc; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 15px; }
+        .awareness-container h2 { color: var(--alert-red); font-size: 22px; margin-bottom: 15px; }
+        .awareness-img { width: 100%; max-width: 600px; border-radius: 8px; border: 3px solid #ccc; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 15px 0; }
+        
+        /* News Text Box */
+        .news-text-box { text-align: left; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 15px; }
+        .news-text-box h3 { color: var(--alert-red); font-size: 18px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        .news-text-box ul { padding-left: 20px; margin: 0; }
+        .news-text-box li { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 10px; }
 
         /* Products Section */
         .section-title { text-align: center; color: var(--dark-green); font-size: 24px; margin: 30px 0 15px 0; }
@@ -92,21 +97,31 @@
         <a href="#">🎥 Video</a>
     </div>
 
-    <!-- Main Hero Banner -->
+    <!-- Hero Banner -->
     <div class="hero">
         <h2>Bidhuna Ka Apna Smart Dairy Vikalp!</h2>
         <p>Bazaar ke packet wale milawati doodh ko kahen alvida. Harsha Dairy aapke baccho ke acche swasthya ke liye laaya hai <span style="color:var(--water-blue); font-weight:bold;">Milk ATM machine</span> dwara aapke ghar tak subah-shaam bilkul taaza aur shuddh doodh.</p>
     </div>
 
-    <!-- Jagrukta & Milawat Virodhi Section -->
+    <!-- Awareness & News Section -->
     <div class="awareness-section">
         <div class="awareness-container">
             <h2>⚠️ Doodh aur Khadya Padarthon mein Milawat Ek Gambhir Khatra!</h2>
-            <p>Aapne akhbar mein padha hi hoga ki kaise desh bhar mein khadya namoone fail ho rahe hain aur Uttar Pradesh milawat ke mamle mein sabse aage hai. Doodh, paneer aur khane ki anya cheezon mein milavat se hamare parivar aur chote bacchon ki sehat par bahut bura asar pad raha hai.</p>
-            <p><strong>Harsha Dairy ka Mukhya Uddesya:</strong> Humne Bidhuna mein ishi zehreeli milawat ko jad se samapt karne aur har ghar tak 100% shuddh, taaza aur poshak tatvon se bharpoor doodh pahunchane ke sankalp ke sath <strong>Milk ATM</strong> ki shuruaat ki hai. Aapki sehat hi hamari sabse badi taakat hai!</p>
+            <p style="text-align: justify; color: #444; font-size: 16px; line-height: 1.6;">Harsha Dairy ka mukhya uddesya Bidhuna mein isi zehreeli milawat ko jad se samapt karna hai. Akhbar ki reports ke mutabik khadya padarthon mein milawat se hamare swasthya par bahut bura asar pad raha hai:</p>
             
-            <!-- Akhbar ki photo yahan dikhegi -->
-            <img src="milawat-news.jpg" alt="Milawat ke khilaf jagrukta report" class="awareness-img">
+            <!-- Akhbar ki Photo -->
+            <img src="milawat-news.jpg" alt="Milawat report news cutting" class="awareness-img">
+
+            <!-- Photo ke neeche saari baatein saaf-saaf likhi hui -->
+            <div class="news-text-box">
+                <h3>Akhbar ki Mukhya Batein (Report Highlights):</h3>
+                <ul>
+                    <li><strong>Laakhon mein namoone, hazaron mein fail:</strong> FSSAI ki report ke mutabik desh bhar mein lakhon khadya namoonon ki jaanch hui jismein hazaaron tay manako par khare nahi utre, aur milawat ke mamle mein <strong>Uttar Pradesh sabse aage</strong> raha hai.</li>
+                    <li><strong>Gambhir bimariyan:</strong> Doosrit bhojan aur milawati doodh se 200 se adhik prakar ki gambhir bimariyan hone ka khatra rehta hai.</li>
+                    <li><strong>Chote bachon par sabse bada jokhim:</strong> 5 saal se kam umr ke bachon par doosrit bhojan ka jokhim sabhi se zyada hota hai, jisse unke mastishk (brain) ke vikas par bura asar padta hai.</li>
+                    <li><strong>Harsha Dairy ka Sankalp:</strong> Isi milawati vyavastha ko badalne aur aapke parivar ko 100% shuddhata dene ke liye hum <strong>Milk ATM</strong> le kar aaye hain, taaki aapko mile sirf pure milk aur pure trust!</li>
+                </ul>
+            </div>
         </div>
     </div>
 
