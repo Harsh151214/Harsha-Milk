@@ -13,6 +13,13 @@
         }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
 
+        /* Chalti hui Breaking News Bar (Ticker) */
+        .breaking-news-bar { background-color: var(--alert-red); color: white; padding: 10px 15px; display: flex; align-items: center; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; z-index: 110; }
+        .breaking-title { background: #b52b27; padding: 5px 12px; font-weight: bold; font-size: 13px; border-radius: 4px; margin-right: 15px; text-transform: uppercase; flex-shrink: 0; }
+        .breaking-content { display: inline-block; animation: marquee 25s linear infinite; font-size: 14px; font-weight: 500; }
+        .breaking-content span { margin-right: 40px; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
         header { background-color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none;}
         .brand-container img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--dark-green); object-fit: cover; }
@@ -31,7 +38,6 @@
         .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
         .side-menu a:hover { background-color: var(--light-green); }
 
-        /* Hero Banner Vistarit */
         .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
         .hero h2 { color: var(--dark-green); font-size: 28px; margin-bottom: 15px; font-weight: 800; }
         .hero p { font-size: 16px; max-width: 800px; margin: auto; line-height: 1.8; color: #444; }
@@ -43,7 +49,6 @@
 
         .section-title { text-align: center; color: var(--dark-green); font-size: 26px; margin: 40px 0 20px 0; font-weight: 800; }
         
-        /* Bade aur Vistarit Products Cards */
         .products { max-width: 850px; margin: auto; padding: 0 15px 40px; display: flex; flex-direction: column; gap: 25px; }
         .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 5px solid var(--dark-green); display: flex; align-items: center; gap: 25px; }
         .card-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--dark-green); object-fit: cover; flex-shrink: 0; background-color: #e8f5e9; }
@@ -61,6 +66,17 @@
     </style>
 </head>
 <body>
+
+    <!-- Chalti hui Breaking News Ticker Bar -->
+    <div class="breaking-news-bar">
+        <div class="breaking-title">🔔 ताज़ा अपडेट</div>
+        <div class="breaking-content">
+            <span>📢 हर्षा डेयरी में आपका स्वागत है — बिधूना का अपना सबसे भरोसेमंद और 100% शुद्ध डेयरी ब्रांड!</span>
+            <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और मिल्क एटीएम सुविधा।</span>
+            <span>⚠️ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
+            <span>✨ विशेष ऑफर: हमारे शुद्ध देसी घी, मट्ठा और ताज़ा पनीर की बुकिंग के लिए संपर्क करें।</span>
+        </div>
+    </div>
 
     <header>
         <a href="index.html" class="brand-container">
@@ -95,7 +111,7 @@
     <!-- Vistarit Hero Banner -->
     <div class="hero">
         <h2>बिधूना का अपना सबसे विश्वसनीय और स्मार्ट डेयरी विकल्प!</h2>
-        <p>बाजार में बिकने वाले पैकेटबंद और हानिकारक रासायनिक मिलावट वाले दूध को अब कहें हमेशा के लिए अलविदा। <strong>हर्षा डेयरी</strong> आपके और आपके पूरे परिवार के उत्तम स्वास्थ्य तथा बच्चों के उज्ज्वल भविष्य को ध्यान में रखते हुए लेकर आया है आधुनिक <strong>मिल्क एटीएम (Milk ATM)</strong> तकनीक। इसके माध्यम से हम आपके घर तक प्रतिदिन सुबह और शाम बिल्कुल शत-प्रतिशत ताज़ा, शुद्ध और प्राकृतिक दूध सीधे सुरक्षित माध्यम से पहुंचाते हैं, ताकि विश्वास की मिठास हमेशा बनी रहे।</p>
+        <p>बाजार में बिकने वाले पैकेटबंद और हानिकारक रासायनिक मिलावट वाले दूध को कहें हमेशा के लिए अलविदा। <strong>हर्षा डेयरी</strong> आपके और आपके पूरे परिवार के उत्तम स्वास्थ्य तथा बच्चों के उज्ज्वल भविष्य को ध्यान में रखते हुए लेकर आया है आधुनिक <strong>मिल्क एटीएम (Milk ATM)</strong> तकनीक। इसके माध्यम से हम आपके घर तक प्रतिदिन सुबह और शाम बिल्कुल शत-प्रतिशत ताज़ा, शुद्ध और प्राकृतिक दूध सीधे सुरक्षित माध्यम से पहुंचाते हैं।</p>
     </div>
 
     <!-- Vistarit News Alert -->
@@ -113,7 +129,7 @@
             <img src="96835.png" alt="Farm Fresh Doodh" class="card-img">
             <div class="card-info">
                 <h3>फार्म फ्रेश शुद्ध दूध (Farm Fresh Milk)</h3>
-                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने और दैनिक ऊर्जा के स्तर को बनाए रखने के लिए सर्वोत्तम विकल्प है। इसे सीधे स्वच्छ वातावरण से आधुनिक तकनीकों द्वारा आप तक सुरक्षित पहुंचाया जाता है।</p>
+                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने और दैनिक ऊर्जा के स्तर को बनाए रखने के लिए सर्वोत्तम विकल्प है।</p>
             </div>
         </div>
 
@@ -122,7 +138,7 @@
             <img src="ghee.jpg" alt="Desi Ghee" class="card-img">
             <div class="card-info">
                 <h3>पारंपरिक शुद्ध देसी घी (Traditional Desi Ghee)</h3>
-                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो न केवल आपके भोजन के स्वाद को कई गुना बढ़ा देते हैं, बल्कि आपके पाचन तंत्र, रोग प्रतिरोधक क्षमता (Immunity) और शारीरिक शक्ति को भी मजबूती प्रदान करते हैं।</p>
+                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो न केवल आपके भोजन के स्वाद को कई गुना बढ़ा देते हैं, बल्कि आपके पाचन तंत्र और शारीरिक शक्ति को भी मजबूती प्रदान करते हैं।</p>
             </div>
         </div>
 
@@ -131,7 +147,7 @@
             <img src="paneer.jpg" alt="Taza Paneer" class="card-img">
             <div class="card-info">
                 <h3>कोमल एवं ताज़ा पनीर (Fresh Malai Paneer)</h3>
-                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों, उत्सवों और दैनिक खान-पान के व्यंजनों को एक बेहतरीन और सेहतमंद स्वाद प्रदान करता है। इसमें कृत्रिम तत्वों का कोई स्थान नहीं है।</p>
+                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों, उत्सवों और दैनिक खान-पान के व्यंजनों को एक बेहतरीन और सेहतमंद स्वाद प्रदान करता है।</p>
             </div>
         </div>
 
