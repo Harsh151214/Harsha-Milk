@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,47 +13,48 @@
         }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
 
-        header { background-color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none;}
-        .brand-container img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--dark-green); }
-        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 20px; font-weight: 900; }
-        .brand-text p { color: var(--water-blue); margin: 0; font-size: 12px; font-weight: bold; }
+        header { background-color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none;}
+        .brand-container img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--dark-green); object-fit: cover; }
+        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 22px; font-weight: 900; }
+        .brand-text p { color: var(--water-blue); margin: 0; font-size: 13px; font-weight: bold; }
 
         .right-section { display: flex; align-items: center; gap: 15px; }
         .search-container { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; overflow: hidden; background: #f9f9f9; }
-        .search-container input { border: none; padding: 6px 10px; outline: none; font-size: 14px; width: 120px; background: transparent;}
-        .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 12px; cursor: pointer; font-size: 14px; }
-        .menu-icon { font-size: 28px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
+        .search-container input { border: none; padding: 6px 12px; outline: none; font-size: 14px; width: 130px; background: transparent;}
+        .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 14px; cursor: pointer; font-size: 14px; }
+        .menu-icon { font-size: 30px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
 
-        .side-menu { position: fixed; top: 0; right: -300px; width: 250px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
+        .side-menu { position: fixed; top: 0; right: -320px; width: 260px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
         .side-menu.active { right: 0; }
         .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
         .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
         .side-menu a:hover { background-color: var(--light-green); }
 
-        /* नई सूचना / स्क्रॉलिंग अपडेट बार के लिए डिज़ाइन */
-        .notification-bar { background-color: var(--dark-green); color: white; padding: 10px 0; display: flex; align-items: center; overflow: hidden; font-size: 14px; }
-        .notification-tag { background-color: var(--alert-red); color: white; padding: 5px 12px; font-weight: bold; z-index: 2; white-space: nowrap; margin-left: 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .notification-bar marquee { font-weight: 500; letter-spacing: 0.5px; }
+        /* Hero Banner Vistarit */
+        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
+        .hero h2 { color: var(--dark-green); font-size: 28px; margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 16px; max-width: 800px; margin: auto; line-height: 1.8; color: #444; }
 
-        .hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--light-green), #ffffff); border-bottom: 4px solid var(--water-blue); }
-        .hero h2 { color: var(--dark-green); font-size: 26px; margin-bottom: 10px; }
-        .hero p { font-size: 16px; max-width: 750px; margin: auto; line-height: 1.6; color: #444; }
+        .home-news-alert { background-color: #fff3f3; border: 2px dashed var(--alert-red); border-radius: 10px; max-width: 800px; margin: 30px auto; padding: 25px; text-align: center; }
+        .home-news-alert h3 { color: var(--alert-red); margin-top: 0; font-size: 22px; }
+        .home-news-alert p { font-size: 15px; color: #555; line-height: 1.6; }
+        .news-btn { display: inline-block; background-color: var(--alert-red); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 15px; font-size: 15px; }
 
-        .home-news-alert { background-color: #fff3f3; border: 2px dashed var(--alert-red); border-radius: 10px; max-width: 750px; margin: 30px auto; padding: 20px; text-align: center; }
-        .home-news-alert h3 { color: var(--alert-red); margin-top: 0; font-size: 20px; }
-        .home-news-alert p { font-size: 14px; color: #555; line-height: 1.5; }
-        .news-btn { display: inline-block; background-color: var(--alert-red); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .section-title { text-align: center; color: var(--dark-green); font-size: 26px; margin: 40px 0 20px 0; font-weight: 800; }
+        
+        /* Bade aur Vistarit Products Cards */
+        .products { max-width: 850px; margin: auto; padding: 0 15px 40px; display: flex; flex-direction: column; gap: 25px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 5px solid var(--dark-green); display: flex; align-items: center; gap: 25px; }
+        .card-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--dark-green); object-fit: cover; flex-shrink: 0; background-color: #e8f5e9; }
+        .card-info { flex-grow: 1; }
+        .card-info h3 { color: var(--dark-green); font-size: 20px; margin: 0 0 8px 0; font-weight: 700; }
+        .card-info p { font-size: 15px; color: #555; margin: 0; line-height: 1.7; }
 
-        .section-title { text-align: center; color: var(--dark-green); font-size: 24px; margin: 40px 0 15px 0; }
-        .products { display: flex; justify-content: center; gap: 15px; padding: 10px 5% 40px; flex-wrap: wrap; }
-        .card { background: white; border-radius: 10px; padding: 20px; text-align: center; width: 100%; max-width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid var(--dark-green); }
-        .card h3 { color: var(--dark-green); font-size: 18px; margin-bottom: 8px;}
-        .card p { font-size: 14px; color: #555; line-height: 1.5; }
+        footer { background-color: var(--dark-green); color: white; padding: 20px; text-align: center; font-size: 14px; margin-top: 50px;}
 
-        footer { background-color: var(--dark-green); color: white; padding: 15px; text-align: center; font-size: 13px; margin-top: 40px;}
-
-        @media (max-width: 450px) {
+        @media (max-width: 550px) {
+            .card { flex-direction: column; text-align: center; }
             .brand-text p { display: none; }
             .search-container input { width: 70px; }
         }
@@ -79,14 +80,6 @@
         </div>
     </header>
 
-    <!-- यहाँ नई सूचना (News Update) बाईं ओर मूव करने के लिए जोड़ी गई है -->
-    <div class="notification-bar">
-        <div class="notification-tag">📢 सूचना / न्यू अपडेट:</div>
-        <marquee behavior="scroll" direction="left" scrollamount="5">
-            बिधूना में हर्षा डेयरी का मिल्क एटीएम शुरू! पाइए 100% शुद्ध और ताज़ा दूध सीधे फार्म से • विशेष चेतावनी: पैकेटबंद मिलावटी दूध से बचें, स्वास्थ्य का रखें ध्यान • ताज़ा पनीर और शुद्ध देसी घी उपलब्ध है!
-        </marquee>
-    </div>
-
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
         <a href="index.html" style="background-color: var(--light-green);">🏠 होम (Home)</a>
@@ -99,27 +92,61 @@
         <a href="video.html">🎥 वीडियो</a>
     </div>
 
+    <!-- Vistarit Hero Banner -->
     <div class="hero">
-        <h2>बिधूना का अपना स्मार्ट डेयरी विकल्प!</h2>
-        <p>बाजार के पैकेट वाले मिलावटी दूध को कहें अलविदा। हर्षा डेयरी आपके बच्चों के अच्छे स्वास्थ्य के लिए लाया है <span style="color:var(--water-blue); font-weight:bold;">मिल्क एटीएम मशीन</span> द्वारा आपके घर तक सुबह-शाम बिल्कुल ताज़ा और शुद्ध दूध।</p>
+        <h2>बिधूना का अपना सबसे विश्वसनीय और स्मार्ट डेयरी विकल्प!</h2>
+        <p>बाजार में बिकने वाले पैकेटबंद और हानिकारक रासायनिक मिलावट वाले दूध को अब कहें हमेशा के लिए अलविदा। <strong>हर्षा डेयरी</strong> आपके और आपके पूरे परिवार के उत्तम स्वास्थ्य तथा बच्चों के उज्ज्वल भविष्य को ध्यान में रखते हुए लेकर आया है आधुनिक <strong>मिल्क एटीएम (Milk ATM)</strong> तकनीक। इसके माध्यम से हम आपके घर तक प्रतिदिन सुबह और शाम बिल्कुल शत-प्रतिशत ताज़ा, शुद्ध और प्राकृतिक दूध सीधे सुरक्षित माध्यम से पहुंचाते हैं, ताकि विश्वास की मिठास हमेशा बनी रहे।</p>
     </div>
 
+    <!-- Vistarit News Alert -->
     <div class="home-news-alert">
-        <h3>⚠️ विशेष चेतावनी: दूध में मिलावट</h3>
-        <p>अखबार की रिपोर्ट के अनुसार मिलावटी दूध और खाद्य पदार्थों से स्वास्थ्य पर गंभीर असर पड़ रहा है। पूरी रिपोर्ट पढ़ें।</p>
-        <a href="news.html" class="news-btn">📰 न्यूज़ यहाँ पढ़ें</a>
+        <h3>⚠️ जनहित एवं स्वास्थ्य को लेकर विशेष चेतावनी: दूध में मिलावट का खतरा</h3>
+        <p>वर्तमान समय में बाजार में मिल रहे मिलावटी दूध और दूषित खाद्य पदार्थों के सेवन से आम जनमानस के स्वास्थ्य पर अत्यंत गंभीर और घातक प्रभाव पड़ रहा है। इस गंभीर समस्या से समाज को बचाने के लिए हमारी विस्तृत रिपोर्ट पढ़ें।</p>
+        <a href="news.html" class="news-btn">📰 पूरी विस्तृत रिपोर्ट यहाँ पढ़ें</a>
     </div>
 
-    <h2 class="section-title">हमारे शुद्ध उत्पाद</h2>
+    <h2 class="section-title">हमारे शत-प्रतिशत शुद्ध एवं प्रीमियम उत्पाद</h2>
+    
     <div class="products">
-        <div class="card"><h3>फार्म फ्रेश दूध</h3><p>100% शुद्ध और बिना किसी मिलावट का ताज़ा दूध, सीधे फार्म से आपके घर तक।</p></div>
-        <div class="card"><h3>देसी घी</h3><p>पारंपरिक तरीके से तैयार किया गया दानेदार घी। शुद्धता ही पहचान है।</p></div>
-        <div class="card"><h3>ताज़ा पनीर</h3><p>बिल्कुल नरम और स्वादिष्ट पनीर, सेहतमंद विकल्प।</p></div>
-        <div class="card"><h3>स्वादिष्ट मट्ठा</h3><p>पेट को ठंडक देने वाला और पाचन तंत्र को मजबूत करने वाला ताज़ा मट्ठा।</p></div>
+        <!-- Product 1: Doodh -->
+        <div class="card">
+            <img src="96835.png" alt="Farm Fresh Doodh" class="card-img">
+            <div class="card-info">
+                <h3>फार्म फ्रेश शुद्ध दूध (Farm Fresh Milk)</h3>
+                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने और दैनिक ऊर्जा के स्तर को बनाए रखने के लिए सर्वोत्तम विकल्प है। इसे सीधे स्वच्छ वातावरण से आधुनिक तकनीकों द्वारा आप तक सुरक्षित पहुंचाया जाता है।</p>
+            </div>
+        </div>
+
+        <!-- Product 2: Ghee -->
+        <div class="card">
+            <img src="ghee.jpg" alt="Desi Ghee" class="card-img">
+            <div class="card-info">
+                <h3>पारंपरिक शुद्ध देसी घी (Traditional Desi Ghee)</h3>
+                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो न केवल आपके भोजन के स्वाद को कई गुना बढ़ा देते हैं, बल्कि आपके पाचन तंत्र, रोग प्रतिरोधक क्षमता (Immunity) और शारीरिक शक्ति को भी मजबूती प्रदान करते हैं।</p>
+            </div>
+        </div>
+
+        <!-- Product 3: Paneer -->
+        <div class="card">
+            <img src="paneer.jpg" alt="Taza Paneer" class="card-img">
+            <div class="card-info">
+                <h3>कोमल एवं ताज़ा पनीर (Fresh Malai Paneer)</h3>
+                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों, उत्सवों और दैनिक खान-पान के व्यंजनों को एक बेहतरीन और सेहतमंद स्वाद प्रदान करता है। इसमें कृत्रिम तत्वों का कोई स्थान नहीं है।</p>
+            </div>
+        </div>
+
+        <!-- Product 4: Mattha -->
+        <div class="card">
+            <img src="mattha.jpg" alt="Swadisht Mattha" class="card-img">
+            <div class="card-info">
+                <h3>पाचनवर्धक स्वादिष्ट मट्ठा (Refreshing Butter Milk)</h3>
+                <p>प्राकृतिक मसालों और शुद्ध दही के सम्मिश्रण से तैयार किया गया यह पाचक और शीतल मट्ठा गर्मियों के दिनों में या भोजन के पश्चात आपके पेट को अद्भुत ठंडक प्रदान करता है। यह आपके पाचन तंत्र को सुचारू रूप से कार्य करने में मदद करता है और शरीर में ताजगी एवं स्फूर्ति का संचार करता है।</p>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Harsha Dairy. All Rights Reserved. Pure Milk, Pure Trust.</p>
+        <p>&copy; 2026 Harsha Dairy, Bidhuna. All Rights Reserved. Pure Milk, Pure Trust.</p>
     </footer>
 
     <script>
