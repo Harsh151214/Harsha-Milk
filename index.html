@@ -47,8 +47,20 @@
         .home-news-alert p { font-size: 15px; color: #555; line-height: 1.6; }
         .news-btn { display: inline-block; background-color: var(--alert-red); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 15px; font-size: 15px; }
 
-        .section-title { text-align: center; color: var(--dark-green); font-size: 26px; margin: 40px 0 20px 0; font-weight: 800; }
+        /* Milk ATM Feed Section Styling with Photos */
+        .atm-feed-section { max-width: 850px; margin: 40px auto; padding: 0 15px; }
         
+        .atm-post-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid var(--water-blue); }
+        .atm-post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .atm-post-title { color: var(--water-blue); font-size: 20px; margin: 0; font-weight: 700; }
+        .atm-post-time { font-size: 13px; color: #777; background: #e0f7fa; padding: 4px 10px; border-radius: 20px; font-weight: 600; }
+        
+        /* Post Photo Styling */
+        .atm-post-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 8px; margin: 15px 0; border: 2px solid #eee; }
+        .atm-post-text { font-size: 15px; color: #444; line-height: 1.7; margin: 0; }
+
+        /* Products Styling */
+        .section-title { text-align: center; color: var(--dark-green); font-size: 26px; margin: 40px 0 20px 0; font-weight: 800; }
         .products { max-width: 850px; margin: auto; padding: 0 15px 40px; display: flex; flex-direction: column; gap: 25px; }
         .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 5px solid var(--dark-green); display: flex; align-items: center; gap: 25px; }
         .card-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--dark-green); object-fit: cover; flex-shrink: 0; background-color: #e8f5e9; }
@@ -60,6 +72,7 @@
 
         @media (max-width: 550px) {
             .card { flex-direction: column; text-align: center; }
+            .atm-post-header { flex-direction: column; align-items: flex-start; gap: 8px; }
             .brand-text p { display: none; }
             .search-container input { width: 70px; }
         }
@@ -108,7 +121,7 @@
         <a href="video.html">🎥 वीडियो</a>
     </div>
 
-    <!-- Top Full Banner Photo (Without Text) -->
+    <!-- Top Full Banner Photo -->
     <div class="top-banner-container">
         <img src="banner.jpg" alt="Harsha Dairy Banner" class="top-banner-img">
     </div>
@@ -120,6 +133,33 @@
         <a href="news.html" class="news-btn">📰 पूरी विस्तृत रिपोर्ट यहाँ पढ़ें</a>
     </div>
 
+    <!-- Milk ATM Machine Posts Section with Photos -->
+    <div class="atm-feed-section">
+        <h2 style="color: var(--water-blue); font-size: 24px; margin-bottom: 20px; text-align: center;">🏧 मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
+        
+        <!-- Post 1 (Photo ke sath) -->
+        <div class="atm-post-card">
+            <div class="atm-post-header">
+                <h3 class="atm-post-title">📢 ताज़ा शुद्ध दूध उपलब्ध!</h3>
+                <span class="atm-post-time">⏱️ 2 घंटे पहले</span>
+            </div>
+            <!-- Pehli Photo ka naam yahan likha hai: atm1.jpg -->
+            <img src="atm1.jpg" alt="Milk ATM Live Photo" class="atm-post-img">
+            <p class="atm-post-text">बिधूना स्थित हमारे मुख्य मिल्क एटीएम पर शाम की शिफ्ट का बिल्कुल 100% ताज़ा और शुद्ध दूध लोड कर दिया गया है। आप सभी ग्राहक समय से आकर अपना शुद्ध दूध प्राप्त कर सकते हैं। शुद्धता की पूरी गारंटी!</p>
+        </div>
+
+        <!-- Post 2 (Dusri Photo ke sath) -->
+        <div class="atm-post-card" style="border-left-color: var(--dark-green);">
+            <div class="atm-post-header">
+                <h3 class="atm-post-title" style="color: var(--dark-green);">💡 मशीन रखरखाव और विशेष सूचना</h3>
+                <span class="atm-post-time" style="background: #e8f5e9; color: var(--dark-green);">📅 4 हफ्ते पहले</span>
+            </div>
+            <!-- Dusri Photo ka naam yahan likha hai: atm2.jpg -->
+            <img src="atm2.jpg" alt="Milk ATM Maintenance" class="atm-post-img">
+            <p class="atm-post-text">हमारे मिल्क एटीएम सेंटर पर ग्राहकों की सुविधार्थ हाई-टेक कूलिंग और ऑटोमैटिक वेइंग मशीन की सर्विसिंग सफलतापूर्वक पूरी कर ली गई है। अब आपको और भी तेज और सटीक मात्रा में दूध मिलेगा। आपके सहयोग के लिए धन्यवाद।</p>
+        </div>
+    </div>
+
     <h2 class="section-title">हमारे शत-प्रतिशत शुद्ध एवं प्रीमियम उत्पाद</h2>
     
     <div class="products">
@@ -128,7 +168,7 @@
             <img src="96835.png" alt="Farm Fresh Doodh" class="card-img">
             <div class="card-info">
                 <h3>फार्म फ्रेश शुद्ध दूध (Farm Fresh Milk)</h3>
-                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने और दैनिक ऊर्जा के स्तर को बनाए रखने के लिए सर्वोत्तम विकल्प है।</p>
+                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने के लिए सर्वोत्तम विकल्प है।</p>
             </div>
         </div>
 
@@ -137,7 +177,7 @@
             <img src="ghee.jpg" alt="Desi Ghee" class="card-img">
             <div class="card-info">
                 <h3>पारंपरिक शुद्ध देसी घी (Traditional Desi Ghee)</h3>
-                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो न केवल आपके भोजन के स्वाद को कई गुना बढ़ा देते हैं, बल्कि आपके पाचन तंत्र और शारीरिक शक्ति को भी मजबूती प्रदान करते हैं।</p>
+                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो आपके पाचन तंत्र और शारीरिक शक्ति को मजबूती प्रदान करते हैं।</p>
             </div>
         </div>
 
@@ -146,7 +186,7 @@
             <img src="paneer.jpg" alt="Taza Paneer" class="card-img">
             <div class="card-info">
                 <h3>कोमल एवं ताज़ा पनीर (Fresh Malai Paneer)</h3>
-                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों, उत्सवों और दैनिक खान-पान के व्यंजनों को एक बेहतरीन और सेहतमंद स्वाद प्रदान करता है।</p>
+                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों और दैनिक खान-पान के व्यंजनों को बेहतरीन स्वाद प्रदान करता है।</p>
             </div>
         </div>
 
@@ -155,7 +195,7 @@
             <img src="mattha.jpg" alt="Swadisht Mattha" class="card-img">
             <div class="card-info">
                 <h3>पाचनवर्धक स्वादिष्ट मट्ठा (Refreshing Butter Milk)</h3>
-                <p>प्राकृतिक मसालों और शुद्ध दही के सम्मिश्रण से तैयार किया गया यह पाचक और शीतल मट्ठा गर्मियों के दिनों में या भोजन के पश्चात आपके पेट को अद्भुत ठंडक प्रदान करता है। यह आपके पाचन तंत्र को सुचारू रूप से कार्य करने में मदद करता है और शरीर में ताजगी एवं स्फूर्ति का संचार करता है.</p>
+                <p>प्राकृतिक मसालों और शुद्ध दही के सम्मिश्रण से तैयार किया गया यह पाचक और शीतल मट्ठा भोजन के पश्चात आपके पेट को अद्भुत ठंडक प्रदान करता है। यह आपके पाचन तंत्र को सुचारू रूप से कार्य करने में मदद करता है और शरीर में ताजगी का संचार करता है.</p>
             </div>
         </div>
     </div>
@@ -170,4 +210,5 @@
     </script>
 
 </body>
-</html>
+                </html>
+                
