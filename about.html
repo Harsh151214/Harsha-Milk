@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harsha Dairy | Pure Milk, Pure Trust</title>
+    <!-- FontAwesome Icons for WhatsApp & Cart -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-green: #0a5c27;
@@ -21,18 +23,19 @@
         .breaking-content span { margin-right: 40px; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Header */
-        header { background-color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none;}
-        .brand-container img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--primary-green); object-fit: cover; }
-        .brand-text h1 { color: var(--primary-green); margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px; }
-        .brand-text p { color: var(--accent-blue); margin: 0; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        /* Pind Nanke Style Header Layout */
+        header { background-color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        
+        .header-left { display: flex; align-items: center; gap: 18px; }
+        .menu-icon, .search-icon { font-size: 22px; cursor: pointer; color: var(--text-dark); }
 
-        .right-section { display: flex; align-items: center; gap: 15px; }
-        .search-container { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; background: #fff; }
-        .search-container input { border: none; padding: 8px 12px; outline: none; font-size: 14px; width: 130px; background: transparent;}
-        .search-container button { background: var(--primary-green); border: none; color: white; padding: 8px 14px; cursor: pointer; font-size: 14px; }
-        .menu-icon { font-size: 28px; cursor: pointer; color: var(--primary-green); font-weight: bold;}
+        .header-center { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .header-center img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary-green); object-fit: cover; }
+        .brand-title-box h1 { color: var(--primary-green); margin: 0; font-size: 18px; font-weight: 800; line-height: 1.1; }
+        .brand-title-box p { color: var(--accent-blue); margin: 0; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+
+        .header-right { display: flex; align-items: center; gap: 18px; }
+        .header-right i { font-size: 20px; cursor: pointer; color: var(--text-dark); }
 
         /* Side Menu */
         .side-menu { position: fixed; top: 0; right: -320px; width: 260px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
@@ -45,16 +48,16 @@
         .top-banner-container { width: 100%; background-color: #000; line-height: 0; }
         .top-banner-img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 500px; }
 
-        /* Trust Banner / Sub-header */
-        .trust-strip { background-color: var(--primary-green); color: white; text-align: center; padding: 20px 15px; font-size: 18px; font-weight: 600; letter-spacing: 0.5px; }
+        /* Trust Banner */
+        .trust-strip { background-color: var(--primary-green); color: white; text-align: center; padding: 18px 15px; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
 
         /* Main Container */
         .main-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
         /* Section Header Style */
         .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { color: var(--primary-green); font-size: 32px; font-weight: 800; margin-bottom: 10px; }
-        .section-header p { color: #666; font-size: 16px; max-width: 700px; margin: auto; line-height: 1.6; }
+        .section-header h2 { color: var(--primary-green); font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+        .section-header p { color: #666; font-size: 15px; max-width: 700px; margin: auto; line-height: 1.6; }
 
         /* Live ATM Section Grid */
         .atm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
@@ -67,26 +70,24 @@
         .atm-card h3 { color: var(--text-dark); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
         .atm-card p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
 
-        /* Products Grid (Pind Nanke Style E-commerce Grid) */
+        /* Products Grid (E-commerce Style) */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eaeaea; transition: transform 0.3s ease; display: flex; flex-direction: column; text-align: center; }
         .product-card:hover { transform: translateY(-5px); }
         .product-img-box { width: 100%; height: 220px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #eee; }
-        .product-img-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green); background: white; }
+        .product-img-box img { width: 125px; height: 125px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green); background: white; }
         .product-details { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
         .product-details h3 { color: var(--primary-green); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
         .product-details p { color: #666; font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; flex-grow: 1; }
-        .product-badge-text { font-size: 13px; color: var(--accent-blue); font-weight: bold; background: #f0f7fc; padding: 6px; border-radius: 6px; }
+        .product-badge-text { font-size: 13px; color: var(--accent-blue); font-weight: bold; background: #f0f7fc; padding: 8px; border-radius: 6px; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Footer */
         footer { background-color: var(--primary-green); color: white; padding: 30px 20px; text-align: center; font-size: 14px; margin-top: 60px; }
         footer p { margin: 5px 0; }
-
-        @media (max-width: 480px) {
-            header { padding: 12px 15px; }
-            .brand-text p { display: none; }
-            .search-container input { width: 70px; }
-        }
     </style>
 </head>
 <body>
@@ -98,26 +99,27 @@
             <span>📢 हर्षा डेयरी में आपका स्वागत है — बिधूना का अपना सबसे भरोसेमंद और 100% शुद्ध डेयरी ब्रांड!</span>
             <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और अत्याधुनिक मिल्क एटीएम सुविधा।</span>
             <span>⚠️ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
-            <span>✨ विशेष ऑफर: हमारे शुद्ध देसी घी, मट्ठा और ताज़ा पनीर की बुकिंग के लिए सीधे संपर्क करें।</span>
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Header (Pind Nanke Style: Menu/Search Left, Logo Center, Sign-in/Cart Right) -->
     <header>
-        <a href="index.html" class="brand-container">
+        <div class="header-left">
+            <i class="fa-solid fa-bars menu-icon" onclick="openMenu()"></i>
+            <i class="fa-solid fa-magnifying-glass search-icon" onclick="alert('Search feature')"></i>
+        </div>
+
+        <a href="index.html" class="header-center">
             <img src="96835.png" alt="Harsha Dairy Logo">
-            <div class="brand-text">
+            <div class="brand-title-box">
                 <h1>HARSHA DAIRY</h1>
                 <p>Pure Milk, Pure Trust</p>
             </div>
         </a>
 
-        <div class="right-section">
-            <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>🔍</button>
-            </div>
-            <div class="menu-icon" onclick="openMenu()">☰</div>
+        <div class="header-right">
+            <i class="fa-regular fa-user" title="Sign In"></i>
+            <i class="fa-solid fa-bag-shopping" title="Cart"></i>
         </div>
     </header>
 
@@ -231,6 +233,11 @@
         </div>
 
     </div>
+
+    <!-- Floating WhatsApp Button (Replace 91XXXXXXXXXX with your actual WhatsApp number) -->
+    <a href="https://wa.me/916396803045?text=Namaste%20Harsha%20Dairy,%20I%20want%20to%20know%20more%20about%20your%20pure%20dairy%20products." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer>
