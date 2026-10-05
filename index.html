@@ -9,14 +9,15 @@
     <style>
         :root {
             --primary-green: #0a5c27;
-            --light-bg: #f8f9fa;
+            --light-bg: #fdfbf7;
             --accent-blue: #008cd4;
             --alert-green: #2e7d32;
             --text-dark: #2c3e50;
+            --price-red: #b12704;
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--text-dark); overflow-x: hidden; }
 
-        /* Green Ticker Bar */
+        /* Green Breaking News Ticker Bar */
         .breaking-news-bar { background-color: var(--alert-green); color: white; padding: 10px 15px; display: flex; align-items: center; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; z-index: 110; }
         .breaking-title { background: #1b5e20; padding: 4px 10px; font-weight: bold; font-size: 12px; border-radius: 4px; margin-right: 15px; text-transform: uppercase; flex-shrink: 0; }
         .breaking-content { display: inline-block; animation: marquee 28s linear infinite; font-size: 14px; font-weight: 500; }
@@ -24,7 +25,7 @@
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* Header Layout */
-        header { background-color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        header { background-color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
         .header-left { display: flex; align-items: center; gap: 18px; }
         .menu-icon, .search-icon { font-size: 22px; cursor: pointer; color: var(--text-dark); }
         .header-center { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -33,6 +34,13 @@
         .brand-title-box p { color: var(--accent-blue); margin: 0; font-size: 10px; font-weight: bold; text-transform: uppercase; }
         .header-right { display: flex; align-items: center; gap: 18px; }
         .header-right i { font-size: 20px; cursor: pointer; color: var(--text-dark); }
+
+        /* Category Filter Bar */
+        .category-filter-bar { background: white; padding: 15px 10px; display: flex; justify-content: center; gap: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); overflow-x: auto; margin-bottom: 25px; }
+        .cat-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; text-decoration: none; color: var(--text-dark); flex-shrink: 0; }
+        .cat-circle { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--primary-green); display: flex; align-items: center; justify-content: center; background: #e8f5e9; font-size: 20px; color: var(--primary-green); margin-bottom: 5px; transition: 0.2s; }
+        .cat-item:hover .cat-circle, .cat-item.active .cat-circle { background: var(--primary-green); color: white; }
+        .cat-item span { font-size: 13px; font-weight: 600; }
 
         /* Search Overlay Box */
         .search-overlay { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 150; text-align: center; box-sizing: border-box; }
@@ -55,6 +63,14 @@
         .google-btn i { color: #ea4335; font-size: 18px; }
         .close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #777; }
 
+        /* Full Screen Image Viewer Modal */
+        #imgViewerModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 500; justify-content: center; align-items: center; flex-direction: column; }
+        #imgViewerModal img { max-width: 90%; max-height: 75vh; border-radius: 8px; border: 2px solid white; object-fit: contain; }
+        .viewer-controls { margin-top: 20px; display: flex; gap: 20px; align-items: center; }
+        .viewer-btn { background: white; color: var(--primary-green); border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; }
+        .viewer-btn:hover { background: #e8f5e9; }
+        .close-viewer { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; font-weight: bold; }
+
         /* Top Banner */
         .top-banner-container { width: 100%; background-color: #000; line-height: 0; }
         .top-banner-img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 500px; }
@@ -63,42 +79,52 @@
         .trust-strip { background-color: var(--primary-green); color: white; text-align: center; padding: 18px 15px; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
 
         /* Main Container */
-        .main-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .main-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { color: var(--primary-green); font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-        .section-header p { color: #666; font-size: 15px; max-width: 700px; margin: auto; line-height: 1.6; }
-
-        /* ATM Grid */
-        .atm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
+        /* Milk ATM Live Feed Section Styles */
+        .atm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 50px; }
         @media(max-width: 768px) { .atm-grid { grid-template-columns: 1fr; } }
-        .atm-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eaeaea; display: flex; flex-direction: column; }
+        .atm-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid var(--accent-blue); display: flex; flex-direction: column; }
         .atm-card img { width: 100%; height: 220px; object-fit: cover; }
-        .atm-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .atm-badge { display: inline-block; background: #e0f7fa; color: var(--accent-blue); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 12px; align-self: flex-start; }
-        .atm-card h3 { color: var(--text-dark); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
-        .atm-card p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
+        .atm-card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+        .atm-badge { display: inline-block; background: #e0f7fa; color: var(--accent-blue); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px; align-self: flex-start; }
+        .atm-card h3 { color: var(--text-dark); font-size: 18px; margin: 0 0 8px 0; font-weight: 700; }
+        .atm-card p { color: #555; font-size: 14px; line-height: 1.6; margin: 0; }
 
-        /* Products Grid */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eaeaea; display: flex; flex-direction: column; text-align: center; }
+        /* Products Layout */
+        .products-grid { display: flex; flex-direction: column; gap: 40px; margin-bottom: 60px; }
+        .product-card-large { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; display: flex; flex-direction: column; }
         
-        /* Ghee 5-Photo Slider Styles */
-        .slider-container { position: relative; width: 100%; height: 240px; background: #f1f8f5; overflow: hidden; border-bottom: 1px solid #eee; }
-        .main-slider-img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s ease-in-out; }
+        .slider-container-large { position: relative; width: 100%; height: 350px; background: #fff; overflow: hidden; border-bottom: 1px solid #eee; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .main-slider-img { width: 100%; height: 100%; object-fit: contain; transition: 0.3s ease-in-out; }
         
-        /* Thumbnail Scroll Bar */
-        .thumbnail-bar { display: flex; gap: 6px; padding: 8px; background: #fafafa; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #eee; justify-content: center; }
-        .thumbnail-bar::-webkit-scrollbar { display: none; }
-        .thumb-img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; cursor: pointer; border: 2px solid #ddd; flex-shrink: 0; transition: 0.2s; }
-        .thumb-img:hover, .thumb-img.active { border-color: var(--primary-green); transform: scale(1.05); }
+        .thumbnail-bar-large { display: flex; gap: 12px; padding: 15px; background: #fdfbf7; overflow-x: auto; scrollbar-width: thin; border-bottom: 1px solid #eee; justify-content: center; }
+        .thumbnail-bar-large::-webkit-scrollbar { height: 6px; }
+        .thumbnail-bar-large::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+        .thumb-img-large { width: 65px; height: 65px; border-radius: 8px; object-fit: cover; cursor: pointer; border: 2px solid #ddd; flex-shrink: 0; transition: 0.2s; background: white; }
+        .thumb-img-large:hover, .thumb-img-large.active { border-color: var(--primary-green); transform: scale(1.08); box-shadow: 0 3px 10px rgba(0,10,39,0.15); }
 
-        .product-details { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-details-large { padding: 30px; display: flex; flex-direction: column; }
+        .product-details-large h2 { color: var(--text-dark); font-size: 28px; margin: 0 0 10px 0; font-weight: 800; }
+        .product-details-large p { color: #555; font-size: 16px; line-height: 1.7; margin: 0 0 20px 0; }
+        
+        .price-box { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .current-price { font-size: 24px; font-weight: 800; color: var(--price-red); }
+        .old-price { font-size: 16px; color: #888; text-decoration: line-through; }
+        .save-badge { background: #e8f5e9; color: var(--primary-green); padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+
+        .buy-btn-large { background: var(--primary-green); color: white; border: none; padding: 14px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s; width: fit-content; }
+        .buy-btn-large:hover { background: #07431c; }
+
+        /* Standard Grid */
+        .standard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eaeaea; display: flex; flex-direction: column; text-align: center; }
+        .standard-img-box { height: 220px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee; }
+        .standard-img-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green); }
+        .product-details { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; text-align: left; }
         .product-details h3 { color: var(--primary-green); font-size: 20px; margin: 0 0 8px 0; font-weight: 700; }
-        .product-details p { color: #666; font-size: 14px; line-height: 1.6; margin: 0 0 12px 0; flex-grow: 1; }
-        .product-badge-text { font-size: 12px; color: var(--accent-blue); font-weight: bold; background: #f0f7fc; padding: 5px; border-radius: 6px; margin-bottom: 12px; }
-        .buy-btn { background: var(--primary-green); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
-        .buy-btn:hover { background: #07431c; }
+        .product-details p { color: #666; font-size: 14px; line-height: 1.6; margin: 0 0 15px 0; flex-grow: 1; }
+        .buy-btn { background: var(--primary-green); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
 
         /* WhatsApp Float */
         .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s; }
@@ -111,12 +137,13 @@
 </head>
 <body>
 
-    <!-- Ticker Bar -->
+    <!-- Green Breaking News Ticker Bar -->
     <div class="breaking-news-bar">
         <div class="breaking-title">🔔 ताज़ा अपडेट</div>
         <div class="breaking-content">
             <span>📢 हर्षा डेयरी में आपका स्वागत है — बिधूना का अपना सबसे भरोसेमंद और 100% शुद्ध डेयरी ब्रांड!</span>
             <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और अत्याधुनिक मिल्क एटीएम सुविधा।</span>
+            <span>⚠ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
         </div>
     </div>
 
@@ -144,6 +171,26 @@
             <input type="text" placeholder="उत्पाद खोजें (जैसे: दूध, घी, पनीर)...">
         </div>
     </header>
+
+    <!-- Category Filter Bar -->
+    <div class="category-filter-bar">
+        <div class="cat-item active" onclick="alert('सभी उत्पाद प्रदर्शित हैं')">
+            <div class="cat-circle"><i class="fa-solid fa-border-all"></i></div>
+            <span>All</span>
+        </div>
+        <div class="cat-item" onclick="alert('घी अनुभाग')">
+            <div class="cat-circle"><i class="fa-solid fa-jar"></i></div>
+            <span>Ghee</span>
+        </div>
+        <div class="cat-item" onclick="alert('दूध अनुभाग')">
+            <div class="cat-circle"><i class="fa-solid fa-glass-water"></i></div>
+            <span>Milk</span>
+        </div>
+        <div class="cat-item" onclick="alert('पनीर और मट्ठा अनुभाग')">
+            <div class="cat-circle"><i class="fa-solid fa-cheese"></i></div>
+            <span>Paneer & Mattha</span>
+        </div>
+    </div>
 
     <!-- Side Menu -->
     <div id="sideMenu" class="side-menu">
@@ -182,6 +229,16 @@
         </div>
     </div>
 
+    <!-- Full Screen Image Viewer Modal -->
+    <div id="imgViewerModal">
+        <span class="close-viewer" onclick="closeImageViewer()">&times;</span>
+        <img id="fullScreenImg" src="" alt="Zoomed Ghee Photo">
+        <div class="viewer-controls">
+            <button class="viewer-btn" onclick="prevImage()">❮ पिछली</button>
+            <button class="viewer-btn" onclick="nextImage()">अगली ❯</button>
+        </div>
+    </div>
+
     <!-- Top Banner -->
     <div class="top-banner-container">
         <img src="banner.jpg" alt="Harsha Dairy Banner" class="top-banner-img">
@@ -194,9 +251,9 @@
     <!-- Main Content -->
     <div class="main-wrapper">
 
-        <div class="section-header">
-            <h2>मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
-            <p>हमारे बिधूना केंद्र पर उपलब्ध ताज़ा दूध और मशीन से जुड़ी सभी नवीनतम जानकारियां।</p>
+        <!-- Milk ATM Machine Live Posts Section -->
+        <div class="section-header" style="text-align:center; margin-bottom:20px;">
+            <h2 style="color:var(--primary-green); font-size:26px;">🏧 मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
         </div>
 
         <div class="atm-grid">
@@ -205,83 +262,91 @@
                 <div class="atm-card-content">
                     <span class="atm-badge">⏱️ 2 घंटे पहले अपडेट</span>
                     <h3>ताज़ा शुद्ध दूध उपलब्ध</h3>
-                    <p>बिधूना स्थित मुख्य मिल्क एटीएम पर शाम की शिफ्ट का बिल्कुल ताजा शुद्ध दूध लोड कर दिया गया है।</p>
+                    <p>बिधूना स्थित हमारे मुख्य मिल्क एटीएम पर शाम की शिफ्ट का बिल्कुल 100% ताज़ा और शुद्ध दूध लोड कर दिया गया है। आप सभी ग्राहक समय से आकर अपना शुद्ध दूध प्राप्त कर सकते हैं।</p>
                 </div>
             </div>
+
             <div class="atm-card">
                 <img src="atm2.jpg" alt="ATM Maintenance">
                 <div class="atm-card-content">
                     <span class="atm-badge" style="background: #e8f5e9; color: var(--primary-green);">📅 4 हफ्ते पहले</span>
                     <h3>मशीन रखरखाव और सर्विसिंग</h3>
-                    <p>ग्राहकों की सुविधा हेतु कूलिंग और वेइंग मशीन की सर्विसिंग सफलतापूर्वक पूरी कर ली गई है।</p>
+                    <p>हमारे मिल्क एटीएम सेंटर पर ग्राहकों की सुविधार्थ हाई-टेक कूलिंग और ऑटोमैटिक वेइंग मशीन की सर्विसिंग सफलतापूर्वक पूरी कर ली गई है ताकि आपको और भी बेहतरीन सेवा मिल सके.</p>
                 </div>
             </div>
         </div>
 
-        <div class="section-header" style="margin-top: 60px;">
-            <h2>हमारे प्रीमियम डेयरी उत्पाद</h2>
-            <p>प्राकृतिक और पारंपरिक तरीकों से तैयार किए गए शुद्ध उत्पाद।</p>
+        <div class="section-header" style="text-align:center; margin:40px 0 30px 0;">
+            <h2 style="color:var(--primary-green); font-size:28px; font-weight:800;">हमारे प्रीमियम डेयरी उत्पाद</h2>
+            <p style="color:#666; font-size:15px;">Pind Nanke Farms की तर्ज पर शुद्धता और पारम्परिक गुणवत्ता से भरपूर</p>
         </div>
 
+        <!-- Products Layout -->
         <div class="products-grid">
             
-            <!-- 1. GHEE (WITH 5 PHOTOS SCROLL / CLICK SLIDER) -->
-            <div class="product-card">
-                <div class="slider-container">
-                    <img id="gheeMainImg" src="ghee1.jpg" alt="Desi Ghee" class="main-slider-img">
+            <!-- 1. GHEE (LARGE FEATURED PRODUCT CARD WITH 5 PHOTOS SLIDER) -->
+            <div class="product-card-large">
+                <div class="slider-container-large" onclick="openImageViewer()" title="बड़ा देखने के लिए क्लिक करें">
+                    <img id="gheeMainImg" src="ghee1.jpg" alt="Cultured Bilona Ghee" class="main-slider-img" onerror="this.src='96835.png'">
                 </div>
                 <!-- 5 Photo Thumbnail Bar -->
-                <div class="thumbnail-bar">
-                    <img src="ghee1.jpg" class="thumb-img active" onclick="changeGheeImg('ghee1.jpg', this)">
-                    <img src="ghee2.jpg" class="thumb-img" onclick="changeGheeImg('ghee2.jpg', this)">
-                    <img src="ghee3.jpg" class="thumb-img" onclick="changeGheeImg('ghee3.jpg', this)">
-                    <img src="ghee4.jpg" class="thumb-img" onclick="changeGheeImg('ghee4.jpg', this)">
-                    <img src="ghee5.jpg" class="thumb-img" onclick="changeGheeImg('ghee5.jpg', this)">
+                <div class="thumbnail-bar-large">
+                    <img src="ghee1.jpg" class="thumb-img-large active" onclick="changeGheeImg(0, this)">
+                    <img src="ghee2.jpg" class="thumb-img-large" onclick="changeGheeImg(1, this)">
+                    <img src="ghee3.jpg" class="thumb-img-large" onclick="changeGheeImg(2, this)">
+                    <img src="ghee4.jpg" class="thumb-img-large" onclick="changeGheeImg(3, this)">
+                    <img src="ghee5.jpg" class="thumb-img-large" onclick="changeGheeImg(4, this)">
                 </div>
-                <div class="product-details">
-                    <h3>पारंपरिक देसी घी</h3>
-                    <p>प्राचीन बिलोना विधि से तैयार दानेदार और सुगंधित शुद्ध देसी घी। (फोटो बदलने के लिए क्लिक करें)</p>
-                    <div class="product-badge-text">पारंपरिक विधि से निर्मित</div>
-                    <button class="buy-btn" onclick="addToCart('पारंपरिक देसी घी')">🛒 अभी खरीदें (Buy)</button>
+                <div class="product-details-large">
+                    <h2>Cultured Bilona Desi Cow Ghee</h2>
+                    <p>प्राचीन बिलोना विधि (Bilona Method) से तैयार किया गया शत-प्रतिशत शुद्ध, दानेदार और सुगंधित देसी गाय का घी जो आपके परिवार की सेहत और रोग प्रतिरोधक क्षमता को बढ़ाए।</p>
+                    
+                    <div class="price-box">
+                        <span class="current-price">₹1,099.00</span>
+                        <span class="old-price">₹1,499.00</span>
+                        <span class="save-badge">YOU SAVE ₹400.00</span>
+                    </div>
+
+                    <button class="buy-btn-large" onclick="addToCart('Cultured Bilona Desi Cow Ghee')">🛒 अभी खरीदें (Buy Now)</button>
                 </div>
             </div>
 
-            <!-- 2. DOODH -->
-            <div class="product-card">
-                <div style="height: 240px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee;">
-                    <img src="96835.png" alt="Farm Fresh Milk" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green);">
+            <!-- Standard Grid for Other Products -->
+            <div class="standard-grid">
+                <!-- DOODH -->
+                <div class="product-card">
+                    <div class="standard-img-box">
+                        <img src="96835.png" alt="Farm Fresh Milk">
+                    </div>
+                    <div class="product-details">
+                        <h3>फार्म फ्रेश शुद्ध दूध</h3>
+                        <p>बिना किसी मिलावट या केमिकल के सीधे फार्म से आपके घर तक पहुँचने वाला पौष्टिक दूध।</p>
+                        <button class="buy-btn" onclick="addToCart('फार्म फ्रेश शुद्ध दूध')">🛒 खरीदें</button>
+                    </div>
                 </div>
-                <div class="product-details">
-                    <h3>फार्म फ्रेश शुद्ध दूध</h3>
-                    <p>बिना किसी मिलावट या केमिकल के सीधे फार्म से आपके घर तक पहुँचने वाला पौष्टिक दूध।</p>
-                    <div class="product-badge-text">100% शुद्ध एवं प्राकृतिक</div>
-                    <button class="buy-btn" onclick="addToCart('फार्म फ्रेश शुद्ध दूध')">🛒 अभी खरीदें (Buy)</button>
-                </div>
-            </div>
 
-            <!-- 3. PANEER -->
-            <div class="product-card">
-                <div style="height: 240px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee;">
-                    <img src="paneer.jpg" alt="Taza Paneer" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green);">
+                <!-- PANEER -->
+                <div class="product-card">
+                    <div class="standard-img-box">
+                        <img src="paneer.jpg" alt="Taza Paneer">
+                    </div>
+                    <div class="product-details">
+                        <h3>कोमल एवं ताज़ा पनीर</h3>
+                        <p>शुद्ध गाढ़े दूध से प्रतिदिन तैयार किया जाने वाला अत्यंत नरम और मलाईदार पनीर।</p>
+                        <button class="buy-btn" onclick="addToCart('कोमल एवं ताज़ा पनीर')">🛒 खरीदें</button>
+                    </div>
                 </div>
-                <div class="product-details">
-                    <h3>कोमल एवं ताज़ा पनीर</h3>
-                    <p>शुद्ध गाढ़े दूध से प्रतिदिन तैयार किया जाने वाला अत्यंत नरम और मलाईदार पनीर।</p>
-                    <div class="product-badge-text">प्रोटीन और कैल्शियम युक्त</div>
-                    <button class="buy-btn" onclick="addToCart('कोमल एवं ताज़ा पनीर')">🛒 अभी खरीदें (Buy)</button>
-                </div>
-            </div>
 
-            <!-- 4. MATTHA -->
-            <div class="product-card">
-                <div style="height: 240px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee;">
-                    <img src="mattha.jpg" alt="Refreshing Mattha" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green);">
-                </div>
-                <div class="product-details">
-                    <h3>पाचनवर्धक मट्ठा</h3>
-                    <p>शुद्ध दही और मसालों से बना शीतल और पाचक मट्ठा जो पेट को ठंडक दे।</p>
-                    <div class="product-badge-text">पाचन तंत्र के लिए उत्तम</div>
-                    <button class="buy-btn" onclick="addToCart('पाचनवर्धक मट्ठा')">🛒 अभी खरीदें (Buy)</button>
+                <!-- MATTHA -->
+                <div class="product-card">
+                    <div class="standard-img-box">
+                        <img src="mattha.jpg" alt="Refreshing Mattha">
+                    </div>
+                    <div class="product-details">
+                        <h3>पाचनवर्धक मट्ठा</h3>
+                        <p>शुद्ध दही और मसालों से बना शीतल और पाचक मट्ठा जो पेट को ठंडक दे।</p>
+                        <button class="buy-btn" onclick="addToCart('पाचनवर्धक मट्ठा')">🛒 खरीदें</button>
+                    </div>
                 </div>
             </div>
 
@@ -303,6 +368,8 @@
 
     <script>
         let selectedProduct = "";
+        const gheeImages = ['ghee1.jpg', 'ghee2.jpg', 'ghee3.jpg', 'ghee4.jpg', 'ghee5.jpg'];
+        let currentIndex = 0;
 
         function openMenu() { document.getElementById("sideMenu").classList.add("active"); }
         function closeMenu() { document.getElementById("sideMenu").classList.remove("active"); }
@@ -323,6 +390,51 @@
             closeLoginModal();
         }
 
-        /* Ghee 5 Photos Click Function */
-        function changeGheeImg(imgSrc, thumbElement) {
-        
+        /* Ghee 5 Photos Click & Scroll Switcher */
+        function changeGheeImg(index, thumbElement) {
+            currentIndex = index;
+            document.getElementById("gheeMainImg").src = gheeImages[currentIndex];
+            let thumbs = document.querySelectorAll('.thumbnail-bar-large .thumb-img-large');
+            thumbs.forEach(t => t.classList.remove('active'));
+            if(thumbElement) thumbElement.classList.add('active');
+        }
+
+        /* Full Screen Viewer Controls */
+        function openImageViewer() {
+            document.getElementById("fullScreenImg").src = gheeImages[currentIndex];
+            document.getElementById("imgViewerModal").style.display = "flex";
+        }
+
+        function closeImageViewer() {
+            document.getElementById("imgViewerModal").style.display = "none";
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % gheeImages.length;
+            document.getElementById("fullScreenImg").src = gheeImages[currentIndex];
+            changeGheeImg(currentIndex, document.querySelectorAll('.thumbnail-bar-large .thumb-img-large')[currentIndex]);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + gheeImages.length) % gheeImages.length;
+            document.getElementById("fullScreenImg").src = gheeImages[currentIndex];
+            changeGheeImg(currentIndex, document.querySelectorAll('.thumbnail-bar-large .thumb-img-large')[currentIndex]);
+        }
+
+        function addToCart(productName) {
+            selectedProduct = productName;
+            document.getElementById("cartItemsText").innerHTML = "✅ आर्डर के लिए चयनित उत्पाद: <br><b style='color:var(--primary-green); font-size:18px;'>" + productName + "</b><br><br>आर्डर कन्फर्म करने के लिए नीचे दिए गए बटन पर क्लिक करें!";
+            document.getElementById("whatsappOrderBtn").style.display = "block";
+            openCartModal();
+        }
+
+        function sendOrderToWhatsApp() {
+            let ownerWhatsAppNumber = "916396803045"; 
+            let message = "Hello Harsha Dairy, mujhe yeh product kharidna hai: " + selectedProduct + ". Kripya sampark karein.";
+            let url = "https://wa.me/" + ownerWhatsAppNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
