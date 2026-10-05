@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -173,26 +173,24 @@
     </header>
 
     <!-- Category Filter Bar -->
-        <!-- Category Filter Bar -->
     <div class="category-filter-bar">
-        <div class="cat-item active" onclick="goHome()">
+        <div class="cat-item active" onclick="alert('सभी उत्पाद प्रदर्शित हैं')">
             <div class="cat-circle"><i class="fa-solid fa-border-all"></i></div>
             <span>All</span>
         </div>
-        <div class="cat-item" onclick="goTo('gheeBox')">
+        <div class="cat-item" onclick="alert('घी अनुभाग')">
             <div class="cat-circle"><i class="fa-solid fa-jar"></i></div>
             <span>Ghee</span>
         </div>
-        <div class="cat-item" onclick="goTo('milkBox')">
+        <div class="cat-item" onclick="alert('दूध अनुभाग')">
             <div class="cat-circle"><i class="fa-solid fa-glass-water"></i></div>
             <span>Milk</span>
         </div>
-        <div class="cat-item" onclick="goTo('paneerBox')">
+        <div class="cat-item" onclick="alert('पनीर और मट्ठा अनुभाग')">
             <div class="cat-circle"><i class="fa-solid fa-cheese"></i></div>
             <span>Paneer & Mattha</span>
         </div>
-    
-    <!-- Side Menu -->
+    !-- Side Menu -->
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
         <a href="index.html" style="background-color: #e8f5e9;">🏠 होम (Home)</a>
@@ -216,7 +214,7 @@
             <button class="google-btn" onclick="googleLogin()"><i class="fa-brands fa-google"></i> Google से लॉगिन करें</button>
         </div>
     </div>
-    
+
     <!-- Cart / Order Modal -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
@@ -250,7 +248,7 @@
 
     <!-- Main Content -->
     <div class="main-wrapper">
-    <div id="allSection" class="main-wrapper">
+
         <!-- Milk ATM Machine Live Posts Section -->
         <div class="section-header" style="text-align:center; margin-bottom:20px;">
             <h2 style="color:var(--primary-green); font-size:26px;">🏧 मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
@@ -280,13 +278,11 @@
             <h2 style="color:var(--primary-green); font-size:28px; font-weight:800;">हमारे प्रीमियम डेयरी उत्पाद</h2>
             <p style="color:#666; font-size:15px;">Pind Nanke Farms की तर्ज पर शुद्धता और पारम्परिक गुणवत्ता से भरपूर</p>
         </div>
-
-        <!-- Products Layout -->
+        !-- Products Layout -->
         <div class="products-grid">
             
             <!-- 1. GHEE (LARGE FEATURED PRODUCT CARD WITH 5 PHOTOS SLIDER) -->
             <div class="product-card-large">
-                <div id="gheeSection" class="product-card-large">
                 <div class="slider-container-large" onclick="openImageViewer()" title="बड़ा देखने के लिए क्लिक करें">
                     <img id="gheeMainImg" src="ghee1.jpg" alt="Cultured Bilona Ghee" class="main-slider-img" onerror="this.src='96835.png'">
                 </div>
@@ -315,7 +311,6 @@
             <!-- Standard Grid for Other Products -->
             <div class="standard-grid">
                 <!-- DOODH -->
-                <div id="milkSection" class="product-card">
                 <div class="product-card">
                     <div class="standard-img-box">
                         <img src="96835.png" alt="Farm Fresh Milk">
@@ -328,7 +323,6 @@
                 </div>
 
                 <!-- PANEER -->
-                <div id="paneerSection" class="product-card">    
                 <div class="product-card">
                     <div class="standard-img-box">
                         <img src="paneer.jpg" alt="Taza Paneer">
@@ -341,7 +335,6 @@
                 </div>
 
                 <!-- MATTHA -->
-                <div id="matthaSection" class="product-card">        
                 <div class="product-card">
                     <div class="standard-img-box">
                         <img src="mattha.jpg" alt="Refreshing Mattha">
@@ -370,22 +363,7 @@
         <p style="margin-top: 15px; font-size: 12px; opacity: 0.8;">&copy; 2026 Harsha Dairy. All Rights Reserved.</p>
     </footer>
 
-        <script>
-        function scrollToSection(sectionId, element) {
-            document.querySelectorAll('.cat-item').forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-
-            if(sectionId === 'allSection') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                let target = document.getElementById(sectionId);
-                if(target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        }
-        </script>
-        
+    <script>
         let selectedProduct = "";
         const gheeImages = ['ghee1.jpg', 'ghee2.jpg', 'ghee3.jpg', 'ghee4.jpg', 'ghee5.jpg'];
         let currentIndex = 0;
