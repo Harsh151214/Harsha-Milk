@@ -4,114 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harsha Dairy | Pure Milk, Pure Trust</title>
+    <!-- FontAwesome Icons for WhatsApp & Cart -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --dark-green: #0a5c27;
-            --light-green: #e8f5e9;
-            --water-blue: #008cd4;
+            --primary-green: #0a5c27;
+            --light-bg: #f8f9fa;
+            --accent-blue: #008cd4;
             --alert-red: #d9534f;
+            --text-dark: #2c3e50;
         }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--text-dark); overflow-x: hidden; }
 
-        /* Chalti hui Breaking News Ticker Bar */
+        /* Ticker Bar */
         .breaking-news-bar { background-color: var(--alert-red); color: white; padding: 10px 15px; display: flex; align-items: center; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; z-index: 110; }
-        .breaking-title { background: #b52b27; padding: 5px 12px; font-weight: bold; font-size: 13px; border-radius: 4px; margin-right: 15px; text-transform: uppercase; flex-shrink: 0; }
-        .breaking-content { display: inline-block; animation: marquee 25s linear infinite; font-size: 14px; font-weight: 500; }
+        .breaking-title { background: #b52b27; padding: 4px 10px; font-weight: bold; font-size: 12px; border-radius: 4px; margin-right: 15px; text-transform: uppercase; flex-shrink: 0; }
+        .breaking-content { display: inline-block; animation: marquee 28s linear infinite; font-size: 14px; font-weight: 500; }
         .breaking-content span { margin-right: 40px; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        header { background-color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none;}
-        .brand-container img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--dark-green); object-fit: cover; }
-        .brand-text h1 { color: var(--dark-green); margin: 0; font-size: 22px; font-weight: 900; }
-        .brand-text p { color: var(--water-blue); margin: 0; font-size: 13px; font-weight: bold; }
+        /* Pind Nanke Style Header Layout */
+        header { background-color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        
+        .header-left { display: flex; align-items: center; gap: 18px; }
+        .menu-icon, .search-icon { font-size: 22px; cursor: pointer; color: var(--text-dark); }
 
-        .right-section { display: flex; align-items: center; gap: 15px; }
-        .search-container { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; overflow: hidden; background: #f9f9f9; }
-        .search-container input { border: none; padding: 6px 12px; outline: none; font-size: 14px; width: 130px; background: transparent;}
-        .search-container button { background: var(--dark-green); border: none; color: white; padding: 6px 14px; cursor: pointer; font-size: 14px; }
-        .menu-icon { font-size: 30px; cursor: pointer; color: var(--dark-green); font-weight: bold;}
+        .header-center { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .header-center img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary-green); object-fit: cover; }
+        .brand-title-box h1 { color: var(--primary-green); margin: 0; font-size: 18px; font-weight: 800; line-height: 1.1; }
+        .brand-title-box p { color: var(--accent-blue); margin: 0; font-size: 10px; font-weight: bold; text-transform: uppercase; }
 
-        .side-menu { position: fixed; top: 0; right: -320px; width: 260px; height: 100vh; background-color: white; box-shadow: -2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
+        .header-right { display: flex; align-items: center; gap: 18px; }
+        .header-right i { font-size: 20px; cursor: pointer; color: var(--text-dark); }
+
+        /* Side Menu */
+        .side-menu { position: fixed; top: 0; right: -320px; width: 260px; height: 100vh; background-color: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 200; display: flex; flex-direction: column; padding-top: 60px; }
         .side-menu.active { right: 0; }
-        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: red; }
-        .side-menu a { padding: 15px 20px; text-decoration: none; font-size: 16px; color: var(--dark-green); font-weight: 600; border-bottom: 1px solid #eee; }
-        .side-menu a:hover { background-color: var(--light-green); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 32px; cursor: pointer; color: red; }
+        .side-menu a { padding: 16px 25px; text-decoration: none; font-size: 16px; color: var(--primary-green); font-weight: 600; border-bottom: 1px solid #f1f1f1; }
+        .side-menu a:hover { background-color: #e8f5e9; }
 
-        /* Full Top Banner Image Style */
+        /* Top Banner */
         .top-banner-container { width: 100%; background-color: #000; line-height: 0; }
-        .top-banner-img { width: 100%; height: auto; display: block; object-fit: cover; }
+        .top-banner-img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 500px; }
 
-        .home-news-alert { background-color: #fff3f3; border: 2px dashed var(--alert-red); border-radius: 10px; max-width: 800px; margin: 30px auto; padding: 25px; text-align: center; }
-        .home-news-alert h3 { color: var(--alert-red); margin-top: 0; font-size: 22px; }
-        .home-news-alert p { font-size: 15px; color: #555; line-height: 1.6; }
-        .news-btn { display: inline-block; background-color: var(--alert-red); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 15px; font-size: 15px; }
+        /* Trust Banner */
+        .trust-strip { background-color: var(--primary-green); color: white; text-align: center; padding: 18px 15px; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
 
-        /* Milk ATM Feed Section Styling with Photos */
-        .atm-feed-section { max-width: 850px; margin: 40px auto; padding: 0 15px; }
+        /* Main Container */
+        .main-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* Section Header Style */
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { color: var(--primary-green); font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+        .section-header p { color: #666; font-size: 15px; max-width: 700px; margin: auto; line-height: 1.6; }
+
+        /* Live ATM Section Grid */
+        .atm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
+        @media(max-width: 768px) { .atm-grid { grid-template-columns: 1fr; } }
         
-        .atm-post-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid var(--water-blue); }
-        .atm-post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .atm-post-title { color: var(--water-blue); font-size: 20px; margin: 0; font-weight: 700; }
-        .atm-post-time { font-size: 13px; color: #777; background: #e0f7fa; padding: 4px 10px; border-radius: 20px; font-weight: 600; }
-        
-        /* Post Photo Styling */
-        .atm-post-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 8px; margin: 15px 0; border: 2px solid #eee; }
-        .atm-post-text { font-size: 15px; color: #444; line-height: 1.7; margin: 0; }
+        .atm-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eaeaea; display: flex; flex-direction: column; }
+        .atm-card img { width: 100%; height: 220px; object-fit: cover; }
+        .atm-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .atm-badge { display: inline-block; background: #e0f7fa; color: var(--accent-blue); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 12px; align-self: flex-start; }
+        .atm-card h3 { color: var(--text-dark); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
+        .atm-card p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
 
-        /* Products Styling */
-        .section-title { text-align: center; color: var(--dark-green); font-size: 26px; margin: 40px 0 20px 0; font-weight: 800; }
-        .products { max-width: 850px; margin: auto; padding: 0 15px 40px; display: flex; flex-direction: column; gap: 25px; }
-        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 5px solid var(--dark-green); display: flex; align-items: center; gap: 25px; }
-        .card-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--dark-green); object-fit: cover; flex-shrink: 0; background-color: #e8f5e9; }
-        .card-info { flex-grow: 1; }
-        .card-info h3 { color: var(--dark-green); font-size: 20px; margin: 0 0 8px 0; font-weight: 700; }
-        .card-info p { font-size: 15px; color: #555; margin: 0; line-height: 1.7; }
+        /* Products Grid (E-commerce Style) */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eaeaea; transition: transform 0.3s ease; display: flex; flex-direction: column; text-align: center; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-img-box { width: 100%; height: 220px; background: #f1f8f5; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #eee; }
+        .product-img-box img { width: 125px; height: 125px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-green); background: white; }
+        .product-details { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-details h3 { color: var(--primary-green); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
+        .product-details p { color: #666; font-size: 14px; line-height: 1.6; margin: 0 0 20px 0; flex-grow: 1; }
+        .product-badge-text { font-size: 13px; color: var(--accent-blue); font-weight: bold; background: #f0f7fc; padding: 8px; border-radius: 6px; }
 
-        footer { background-color: var(--dark-green); color: white; padding: 20px; text-align: center; font-size: 14px; margin-top: 50px;}
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        @media (max-width: 550px) {
-            .card { flex-direction: column; text-align: center; }
-            .atm-post-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .brand-text p { display: none; }
-            .search-container input { width: 70px; }
-        }
+        /* Footer */
+        footer { background-color: var(--primary-green); color: white; padding: 30px 20px; text-align: center; font-size: 14px; margin-top: 60px; }
+        footer p { margin: 5px 0; }
     </style>
 </head>
 <body>
 
-    <!-- Chalti hui Breaking News Ticker Bar -->
+    <!-- Breaking News Ticker Bar -->
     <div class="breaking-news-bar">
         <div class="breaking-title">🔔 ताज़ा अपडेट</div>
         <div class="breaking-content">
             <span>📢 हर्षा डेयरी में आपका स्वागत है — बिधूना का अपना सबसे भरोसेमंद और 100% शुद्ध डेयरी ब्रांड!</span>
-            <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और मिल्क एटीएम सुविधा।</span>
+            <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और अत्याधुनिक मिल्क एटीएम सुविधा।</span>
             <span>⚠️ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
-            <span>✨ विशेष ऑफर: हमारे शुद्ध देसी घी, मट्ठा और ताज़ा पनीर की बुकिंग के लिए संपर्क करें।</span>
         </div>
     </div>
 
+    <!-- Header (Pind Nanke Style: Menu/Search Left, Logo Center, Sign-in/Cart Right) -->
     <header>
-        <a href="index.html" class="brand-container">
+        <div class="header-left">
+            <i class="fa-solid fa-bars menu-icon" onclick="openMenu()"></i>
+            <i class="fa-solid fa-magnifying-glass search-icon" onclick="alert('Search feature')"></i>
+        </div>
+
+        <a href="index.html" class="header-center">
             <img src="96835.png" alt="Harsha Dairy Logo">
-            <div class="brand-text">
+            <div class="brand-title-box">
                 <h1>HARSHA DAIRY</h1>
                 <p>Pure Milk, Pure Trust</p>
             </div>
         </a>
 
-        <div class="right-section">
-            <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>🔍</button>
-            </div>
-            <div class="menu-icon" onclick="openMenu()">☰</div>
+        <div class="header-right">
+            <i class="fa-regular fa-user" title="Sign In"></i>
+            <i class="fa-solid fa-bag-shopping" title="Cart"></i>
         </div>
     </header>
 
+    <!-- Side Menu -->
     <div id="sideMenu" class="side-menu">
         <span class="close-btn" onclick="closeMenu()">&times;</span>
-        <a href="index.html" style="background-color: var(--light-green);">🏠 होम (Home)</a>
+        <a href="index.html" style="background-color: #e8f5e9;">🏠 होम (Home)</a>
         <a href="about.html">ℹ️ हमारे बारे में (About)</a>
         <a href="contact.html">📞 संपर्क करें (Contact)</a>
         <a href="news.html">📰 न्यूज़ अपडेट (News Update)</a>
@@ -126,82 +141,109 @@
         <img src="banner.jpg" alt="Harsha Dairy Banner" class="top-banner-img">
     </div>
 
-    <!-- Vistarit News Alert -->
-    <div class="home-news-alert">
-        <h3>⚠️ जनहित एवं स्वास्थ्य को लेकर विशेष चेतावनी: दूध में मिलावट का खतरा</h3>
-        <p>वर्तमान समय में बाजार में मिल रहे मिलावटी दूध और दूषित खाद्य पदार्थों के सेवन से आम जनमानस के स्वास्थ्य पर अत्यंत गंभीर और घातक प्रभाव पड़ रहा है। इस गंभीर समस्या से समाज को बचाने के लिए हमारी विस्तृत रिपोर्ट पढ़ें।</p>
-        <a href="news.html" class="news-btn">📰 पूरी विस्तृत रिपोर्ट यहाँ पढ़ें</a>
+    <div class="trust-strip">
+        ✨ Pure From Our Farm to Your Family — शत-प्रतिशत शुद्धता की गारंटी ✨
     </div>
 
-    <!-- Milk ATM Machine Posts Section with Photos -->
-    <div class="atm-feed-section">
-        <h2 style="color: var(--water-blue); font-size: 24px; margin-bottom: 20px; text-align: center;">🏧 मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
-        
-        <!-- Post 1 (Photo ke sath) -->
-        <div class="atm-post-card">
-            <div class="atm-post-header">
-                <h3 class="atm-post-title">📢 ताज़ा शुद्ध दूध उपलब्ध!</h3>
-                <span class="atm-post-time">⏱️ 2 घंटे पहले</span>
-            </div>
-            <!-- Pehli Photo ka naam yahan likha hai: atm1.jpg -->
-            <img src="atm1.jpg" alt="Milk ATM Live Photo" class="atm-post-img">
-            <p class="atm-post-text">बिधूना स्थित हमारे मुख्य मिल्क एटीएम पर शाम की शिफ्ट का बिल्कुल 100% ताज़ा और शुद्ध दूध लोड कर दिया गया है। आप सभी ग्राहक समय से आकर अपना शुद्ध दूध प्राप्त कर सकते हैं। शुद्धता की पूरी गारंटी!</p>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Milk ATM Live Updates Section -->
+        <div class="section-header">
+            <h2>मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
+            <p>हमारे बिधूना केंद्र पर उपलब्ध ताज़ा दूध और मशीन से जुड़ी सभी नवीनतम जानकारियां समय के साथ यहाँ अपडेट की जाती हैं।</p>
         </div>
 
-        <!-- Post 2 (Dusri Photo ke sath) -->
-        <div class="atm-post-card" style="border-left-color: var(--dark-green);">
-            <div class="atm-post-header">
-                <h3 class="atm-post-title" style="color: var(--dark-green);">💡 मशीन रखरखाव और विशेष सूचना</h3>
-                <span class="atm-post-time" style="background: #e8f5e9; color: var(--dark-green);">📅 4 हफ्ते पहले</span>
+        <div class="atm-grid">
+            <!-- Post 1 -->
+            <div class="atm-card">
+                <img src="atm1.jpg" alt="Milk ATM Live">
+                <div class="atm-card-content">
+                    <span class="atm-badge">⏱️ 2 घंटे पहले अपडेट</span>
+                    <h3>ताज़ा शुद्ध दूध उपलब्ध</h3>
+                    <p>बिधूना स्थित हमारे मुख्य मिल्क एटीएम पर शाम की शिफ्ट का बिल्कुल 100% ताज़ा और शुद्ध दूध लोड कर दिया गया है। आप सभी ग्राहक समय से आकर अपना शुद्ध दूध प्राप्त कर सकते हैं।</p>
+                </div>
             </div>
-            <!-- Dusri Photo ka naam yahan likha hai: atm2.jpg -->
-            <img src="atm2.jpg" alt="Milk ATM Maintenance" class="atm-post-img">
-            <p class="atm-post-text">हमारे मिल्क एटीएम सेंटर पर ग्राहकों की सुविधार्थ हाई-टेक कूलिंग और ऑटोमैटिक वेइंग मशीन की सर्विसिंग सफलतापूर्वक पूरी कर ली गई है। अब आपको और भी तेज और सटीक मात्रा में दूध मिलेगा। आपके सहयोग के लिए धन्यवाद।</p>
+
+            <!-- Post 2 -->
+            <div class="atm-card">
+                <img src="atm2.jpg" alt="ATM Maintenance">
+                <div class="atm-card-content">
+                    <span class="atm-badge" style="background: #e8f5e9; color: var(--primary-green);">📅 4 हफ्ते पहले</span>
+                    <h3>मशीन रखरखाव और सर्विसिंग</h3>
+                    <p>हमारे मिल्क एटीएम सेंटर पर ग्राहकों की सुविधार्थ हाई-टेक कूलिंग और ऑटोमैटिक वेइंग मशीन की सर्विसिंग सफलतापूर्वक पूरी कर ली गई है ताकि आपको और भी बेहतरीन सेवा मिल सके।</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Products Section -->
+        <div class="section-header" style="margin-top: 60px;">
+            <h2>हमारे प्रीमियम डेयरी उत्पाद</h2>
+            <p>प्राकृतिक और पारम्परिक तरीकों से तैयार किए गए हमारे शुद्ध उत्पाद जो आपके परिवार के उत्तम स्वास्थ्य और पोषण के लिए समर्पित हैं।</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: Doodh -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="96835.png" alt="Farm Fresh Milk">
+                </div>
+                <div class="product-details">
+                    <h3>फार्म फ्रेश शुद्ध दूध</h3>
+                    <p>बिना किसी मिलावट, पानी या केमिकल के सीधे फार्म से आपके घर तक पहुँचने वाला पौष्टिक और प्राकृतिक दूध।</p>
+                    <div class="product-badge-text">100% शुद्ध एवं प्राकृतिक</div>
+                </div>
+            </div>
+
+            <!-- Product 2: Ghee -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="ghee.jpg" alt="Desi Ghee">
+                </div>
+                <div class="product-details">
+                    <h3>पारंपरिक देसी घी</h3>
+                    <p>प्राचीन बिलोना विधि से तैयार किया गया दानेदार और सुगंधित शुद्ध देसी घी जो पाचन शक्ति बढ़ाए।</p>
+                    <div class="product-badge-text">पारंपरिक विधि से निर्मित</div>
+                </div>
+            </div>
+
+            <!-- Product 3: Paneer -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="paneer.jpg" alt="Taza Paneer">
+                </div>
+                <div class="product-details">
+                    <h3>कोमल एवं ताज़ा पनीर</h3>
+                    <p>शुद्ध गाढ़े दूध से प्रतिदिन तैयार किया जाने वाला अत्यंत नरम, मलाईदार और प्रोटीन से भरपूर पनीर।</p>
+                    <div class="product-badge-text">प्रोटीन और कैल्शियम युक्त</div>
+                </div>
+            </div>
+
+            <!-- Product 4: Mattha -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="mattha.jpg" alt="Refreshing Mattha">
+                </div>
+                <div class="product-details">
+                    <h3>पाचनवर्धक मट्ठा</h3>
+                    <p>शुद्ध दही और प्राकृतिक मसालों से बना शीतल और पाचक मट्ठा जो पेट को ठंडक और ताजगी दे।</p>
+                    <div class="product-badge-text">पाचन तंत्र के लिए उत्तम</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <h2 class="section-title">हमारे शत-प्रतिशत शुद्ध एवं प्रीमियम उत्पाद</h2>
-    
-    <div class="products">
-        <!-- Product 1: Doodh -->
-        <div class="card">
-            <img src="96835.png" alt="Farm Fresh Doodh" class="card-img">
-            <div class="card-info">
-                <h3>फार्म फ्रेश शुद्ध दूध (Farm Fresh Milk)</h3>
-                <p>हमारा दूध किसी भी प्रकार के केमिकल, वाटर मिक्सिंग या हानिकारक प्रिजर्वेटिव से पूरी तरह मुक्त होता है। प्राकृतिक रूप से पोषित दुधारू पशुओं से प्राप्त यह शत-प्रतिशत शुद्ध और पौष्टिक दूध आपके परिवार की हड्डियों को मजबूत बनाने के लिए सर्वोत्तम विकल्प है।</p>
-            </div>
-        </div>
+    <!-- Floating WhatsApp Button (Replace 91XXXXXXXXXX with your actual WhatsApp number) -->
+    <a href="https://wa.me/916396803045?text=Namaste%20Harsha%20Dairy,%20I%20want%20to%20know%20more%20about%20your%20pure%20dairy%20products." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-        <!-- Product 2: Ghee -->
-        <div class="card">
-            <img src="ghee.jpg" alt="Desi Ghee" class="card-img">
-            <div class="card-info">
-                <h3>पारंपरिक शुद्ध देसी घी (Traditional Desi Ghee)</h3>
-                <p>हमारी प्राचीन और पारंपरिक बिलोना विधि के माध्यम से पूरी शुद्धता के साथ तैयार किया गया दानेदार और सुगंधित देसी घी। इसमें प्राकृतिक विटामिन और पोषक तत्व प्रचुर मात्रा में विद्यमान रहते हैं जो आपके पाचन तंत्र और शारीरिक शक्ति को मजबूती प्रदान करते हैं।</p>
-            </div>
-        </div>
-
-        <!-- Product 3: Paneer -->
-        <div class="card">
-            <img src="paneer.jpg" alt="Taza Paneer" class="card-img">
-            <div class="card-info">
-                <h3>कोमल एवं ताज़ा पनीर (Fresh Malai Paneer)</h3>
-                <p>प्रतिदिन शुद्ध और गाढ़े ताज़े दूध से निर्मित अत्यंत नरम, स्वादिष्ट और मलाईदार पनीर। प्रोटीन, कैल्शियम और स्वास्थ्यवर्धक गुणों से भरपूर हमारा पनीर आपके हर प्रकार के पारिवारिक आयोजनों और दैनिक खान-पान के व्यंजनों को बेहतरीन स्वाद प्रदान करता है।</p>
-            </div>
-        </div>
-
-        <!-- Product 4: Mattha -->
-        <div class="card">
-            <img src="mattha.jpg" alt="Swadisht Mattha" class="card-img">
-            <div class="card-info">
-                <h3>पाचनवर्धक स्वादिष्ट मट्ठा (Refreshing Butter Milk)</h3>
-                <p>प्राकृतिक मसालों और शुद्ध दही के सम्मिश्रण से तैयार किया गया यह पाचक और शीतल मट्ठा भोजन के पश्चात आपके पेट को अद्भुत ठंडक प्रदान करता है। यह आपके पाचन तंत्र को सुचारू रूप से कार्य करने में मदद करता है और शरीर में ताजगी का संचार करता है.</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Harsha Dairy, Bidhuna. All Rights Reserved. Pure Milk, Pure Trust.</p>
+        <p><strong>Harsha Dairy, Bidhuna (Uttar Pradesh)</strong></p>
+        <p>Pure From Our Farm to Your Family | Pure Milk, Pure Trust</p>
+        <p style="margin-top: 15px; font-size: 12px; opacity: 0.8;">&copy; 2026 Harsha Dairy. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -210,5 +252,4 @@
     </script>
 
 </body>
-                </html>
-                
+</html>
