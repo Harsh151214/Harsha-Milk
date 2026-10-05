@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harsha Dairy | Pure Milk, Pure Trust</title>
-    <!-- FontAwesome Icons for WhatsApp, Cart, Search etc. -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-green: #0a5c27;
             --light-bg: #f8f9fa;
             --accent-blue: #008cd4;
-            --alert-green: #2e7d32; /* Changed from red to green */
+            --alert-green: #2e7d32;
             --text-dark: #2c3e50;
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--text-dark); overflow-x: hidden; }
@@ -38,7 +38,7 @@
         .header-right i { font-size: 20px; cursor: pointer; color: var(--text-dark); }
 
         /* Search Overlay Box */
-        .search-overlay { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 150; text-align: center; }
+        .search-overlay { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 150; text-align: center; box-sizing: border-box; }
         .search-overlay input { width: 80%; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none; font-size: 15px; }
 
         /* Side Menu */
@@ -48,12 +48,15 @@
         .side-menu a { padding: 16px 25px; text-decoration: none; font-size: 16px; color: var(--primary-green); font-weight: 600; border-bottom: 1px solid #f1f1f1; }
         .side-menu a:hover { background-color: #e8f5e9; }
 
-        /* Modals for Sign In & Cart */
+        /* Modals */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 300; justify-content: center; align-items: center; }
         .modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
         .modal-content h3 { color: var(--primary-green); margin-top: 0; }
         .modal-content input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
         .modal-btn { background: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        
+        .google-btn { background: white; color: #444; border: 1px solid #dbdbdb; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .google-btn i { color: #ea4335; font-size: 18px; }
         .close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #777; }
 
         /* Top Banner */
@@ -66,12 +69,12 @@
         /* Main Container */
         .main-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
-        /* Section Header Style */
+        /* Section Header */
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header h2 { color: var(--primary-green); font-size: 28px; font-weight: 800; margin-bottom: 10px; }
         .section-header p { color: #666; font-size: 15px; max-width: 700px; margin: auto; line-height: 1.6; }
 
-        /* Live ATM Section Grid */
+        /* ATM Grid */
         .atm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
         @media(max-width: 768px) { .atm-grid { grid-template-columns: 1fr; } }
         
@@ -82,7 +85,7 @@
         .atm-card h3 { color: var(--text-dark); font-size: 20px; margin: 0 0 10px 0; font-weight: 700; }
         .atm-card p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
 
-        /* Products Grid (E-commerce Style) */
+        /* Products Grid */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eaeaea; transition: transform 0.3s ease; display: flex; flex-direction: column; text-align: center; }
         .product-card:hover { transform: translateY(-5px); }
@@ -95,7 +98,7 @@
         .buy-btn { background: var(--primary-green); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
         .buy-btn:hover { background: #07431c; }
 
-        /* Floating WhatsApp Button */
+        /* WhatsApp Float */
         .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
 
@@ -106,13 +109,13 @@
 </head>
 <body>
 
-    <!-- Green Breaking News Ticker Bar -->
+    <!-- Ticker Bar -->
     <div class="breaking-news-bar">
         <div class="breaking-title">🔔 ताज़ा अपडेट</div>
         <div class="breaking-content">
             <span>📢 हर्षा डेयरी में आपका स्वागत है — बिधूना का अपना सबसे भरोसेमंद और 100% शुद्ध डेयरी ब्रांड!</span>
             <span>🥛 शुद्धता हमारी पहचान: पाइए बिल्कुल मिलावट-मुक्त फार्म फ्रेश दूध और अत्याधुनिक मिल्क एटीएम सुविधा।</span>
-            <span>⚠️️ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
+            <span>⚠ खाद्य सुरक्षा चेतावनी: मिलावटी दूध से बचें, अपने परिवार को स्वस्थ रखें और शुद्ध डेयरी उत्पाद अपनाएं।</span>
         </div>
     </div>
 
@@ -136,9 +139,8 @@
             <i class="fa-solid fa-bag-shopping" title="Cart" onclick="openCartModal()"></i>
         </div>
 
-        <!-- Search Overlay Input Box -->
         <div id="searchBox" class="search-overlay">
-            <input type="text" placeholder="उत्पाद खोजें (जैसे: दूध, घी, पनीर)..." onkeyup="searchProducts(this.value)">
+            <input type="text" placeholder="उत्पाद खोजें (जैसे: दूध, घी, पनीर)...">
         </div>
     </header>
 
@@ -155,28 +157,37 @@
         <a href="video.html">🎥 वीडियो</a>
     </div>
 
-    <!-- Sign In Modal -->
+    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeLoginModal()">&times;</span>
             <h3>🔐 ग्राहक लॉगिन / साइन-इन</h3>
             <p style="font-size: 13px; color: #666;">हर्षा डेयरी परिवार में आपका स्वागत है</p>
+            
             <input type="text" id="mobileInput" placeholder="अपना मोबाइल नंबर दर्ज करें">
-            <button class="modal-btn" onclick="alert('OTP आपके नंबर पर भेजा गया है!')">ओटीपी प्राप्त करें</button>
+            <button class="modal-btn" onclick="alert('सफलतापूर्वक नंबर दर्ज हो गया!')">आगे बढ़ें</button>
+            
+            <div style="margin: 15px 0; font-size: 13px; color: #888;">— या —</div>
+
+            <button class="google-btn" onclick="googleLogin()">
+                <i class="fa-brands fa-google"></i> Google से लॉगिन करें
+            </button>
         </div>
     </div>
 
-    <!-- Cart / Purchase Modal -->
+    <!-- Cart / Order Modal -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCartModal()">&times;</span>
-            <h3>🛒 आपकी शॉपिंग कार्ट (खरीदारी)</h3>
-            <p id="cartItemsText" style="font-size: 14px; color: #555; margin: 20px 0;">आपकी कार्ट अभी खाली है। उत्पाद के नीचे दिए गए 'खरीदें' बटन पर क्लिक करें।</p>
-            <button class="modal-btn" onclick="alert('ऑर्डर प्रक्रिया जल्द ही शुरू होगी!')">ऑर्डर कन्फर्म करें</button>
+            <h3>🛒 आपका आर्डर (WhatsApp आर्डर)</h3>
+            <p id="cartItemsText" style="font-size: 14px; color: #555; margin: 20px 0;">आपकी कार्ट में कोई उत्पाद नहीं है। कृपया नीचे 'अभी खरीदें' पर क्लिक करें।</p>
+            <button id="whatsappOrderBtn" class="modal-btn" style="background-color: #25d366; display:none;" onclick="sendOrderToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp पर आर्डर भेजें
+            </button>
         </div>
     </div>
 
-    <!-- Top Full Banner Photo -->
+    <!-- Top Banner -->
     <div class="top-banner-container">
         <img src="banner.jpg" alt="Harsha Dairy Banner" class="top-banner-img">
     </div>
@@ -185,17 +196,15 @@
         ✨ Pure From Our Farm to Your Family — शत-प्रतिशत शुद्धता की गारंटी ✨
     </div>
 
-    <!-- Main Wrapper -->
+    <!-- Main Content -->
     <div class="main-wrapper">
 
-        <!-- Milk ATM Live Updates Section -->
         <div class="section-header">
             <h2>मिल्क एटीएम मशीन लाइव अपडेट्स</h2>
             <p>हमारे बिधूना केंद्र पर उपलब्ध ताज़ा दूध और मशीन से जुड़ी सभी नवीनतम जानकारियां समय के साथ यहाँ अपडेट की जाती हैं।</p>
         </div>
 
         <div class="atm-grid">
-            <!-- Post 1 -->
             <div class="atm-card">
                 <img src="atm1.jpg" alt="Milk ATM Live">
                 <div class="atm-card-content">
@@ -205,7 +214,6 @@
                 </div>
             </div>
 
-            <!-- Post 2 -->
             <div class="atm-card">
                 <img src="atm2.jpg" alt="ATM Maintenance">
                 <div class="atm-card-content">
@@ -216,14 +224,12 @@
             </div>
         </div>
 
-        <!-- Products Section -->
         <div class="section-header" style="margin-top: 60px;">
             <h2>हमारे प्रीमियम डेयरी उत्पाद</h2>
             <p>प्राकृतिक और पारम्परिक तरीकों से तैयार किए गए हमारे शुद्ध उत्पाद जो आपके परिवार के उत्तम स्वास्थ्य और पोषण के लिए समर्पित हैं।</p>
         </div>
 
         <div class="products-grid">
-            <!-- Product 1: Doodh -->
             <div class="product-card">
                 <div class="product-img-box">
                     <img src="96835.png" alt="Farm Fresh Milk">
@@ -236,7 +242,6 @@
                 </div>
             </div>
 
-            <!-- Product 2: Ghee -->
             <div class="product-card">
                 <div class="product-img-box">
                     <img src="ghee.jpg" alt="Desi Ghee">
@@ -249,7 +254,6 @@
                 </div>
             </div>
 
-            <!-- Product 3: Paneer -->
             <div class="product-card">
                 <div class="product-img-box">
                     <img src="paneer.jpg" alt="Taza Paneer">
@@ -262,7 +266,6 @@
                 </div>
             </div>
 
-            <!-- Product 4: Mattha -->
             <div class="product-card">
                 <div class="product-img-box">
                     <img src="mattha.jpg" alt="Refreshing Mattha">
@@ -278,8 +281,8 @@
 
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/916396803045?text=Namaste%20Harsha%20Dairy,%20I%20want%20to%20know%20more%20about%20your%20pure%20dairy%20products." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919683500000?text=Namaste%20Harsha%20Dairy,%20I%20want%20to%20know%20more%20about%20your%20dairy%20products." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -291,6 +294,8 @@
     </footer>
 
     <script>
+        let selectedProduct = "";
+
         function openMenu() { document.getElementById("sideMenu").classList.add("active"); }
         function closeMenu() { document.getElementById("sideMenu").classList.remove("active"); }
 
@@ -305,18 +310,26 @@
         function openCartModal() { document.getElementById("cartModal").style.display = "flex"; }
         function closeCartModal() { document.getElementById("cartModal").style.display = "none"; }
 
+        function googleLogin() {
+            alert('🎉 Google Account से सफलतापूर्वक लॉगिन हो गया है!\nहर्षा डेयरी में आपका स्वागत है।');
+            closeLoginModal();
+        }
+
         function addToCart(productName) {
-            document.getElementById("cartItemsText").innerHTML = "✅ आपके कार्ट में जोड़ा गया: <b>" + productName + "</b><br>जल्द ही आपका आर्डर बुक किया जाएगा!";
+            selectedProduct = productName;
+            document.getElementById("cartItemsText").innerHTML = "✅ आर्डर के लिए चयनित उत्पाद: <br><b style='color:var(--primary-green); font-size:18px;'>" + productName + "</b><br><br>आर्डर कन्फर्म करने के लिए नीचे दिए गए बटन पर क्लिक करें, यह सीधे आपके WhatsApp पर आ जाएगा!";
+            document.getElementById("whatsappOrderBtn").style.display = "block";
             openCartModal();
         }
 
-        function searchProducts(query) {
-            // Simple search alert simulation
-            if(query.length > 2) {
-                // Can be expanded
-            }
+        function sendOrderToWhatsApp() {
+            let ownerWhatsAppNumber = "916396803045"; // Yahan apna WhatsApp number likh lena
+            let message = "Hello Harsha Dairy, mujhe yeh product kharidna hai: " + selectedProduct + ". Kripya sampark karein.";
+            let url = "https://wa.me/" + ownerWhatsAppNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, '_blank');
         }
     </script>
 
 </body>
-</html>
+                    </html>
+                    
